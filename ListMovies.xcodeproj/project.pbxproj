@@ -99,13 +99,15 @@
 		EA0F5D7A27B9CE2F00858682 /* ListMovies */ = {
 			isa = PBXGroup;
 			children = (
-				EA0F5D7B27B9CE2F00858682 /* AppDelegate.swift */,
-				EA0F5D7D27B9CE2F00858682 /* SceneDelegate.swift */,
-				EA0F5D7F27B9CE2F00858682 /* ViewController.swift */,
+				EA0F5DB127B9D08700858682 /* Resources */,
+				EA0F5DB027B9D08000858682 /* Modules */,
+				EA0F5DAF27B9D07000858682 /* Infrastructure */,
+				EA0F5DAE27B9D06100858682 /* Domain */,
+				EA0F5DAD27B9CFB500858682 /* Data */,
+				EA0F5DAC27B9CFB000858682 /* Commom */,
+				EA0F5DAB27B9CFA200858682 /* Application */,
 				EA0F5D8127B9CE2F00858682 /* Main.storyboard */,
-				EA0F5D8427B9CE3100858682 /* Assets.xcassets */,
 				EA0F5D8627B9CE3100858682 /* LaunchScreen.storyboard */,
-				EA0F5D8927B9CE3100858682 /* Info.plist */,
 			);
 			path = ListMovies;
 			sourceTree = "<group>";
@@ -125,6 +127,60 @@
 				EA0F5D9E27B9CE3100858682 /* ListMoviesUITestsLaunchTests.swift */,
 			);
 			path = ListMoviesUITests;
+			sourceTree = "<group>";
+		};
+		EA0F5DAB27B9CFA200858682 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				EA0F5D8927B9CE3100858682 /* Info.plist */,
+				EA0F5D7B27B9CE2F00858682 /* AppDelegate.swift */,
+				EA0F5D7D27B9CE2F00858682 /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		EA0F5DAC27B9CFB000858682 /* Commom */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Commom;
+			sourceTree = "<group>";
+		};
+		EA0F5DAD27B9CFB500858682 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		EA0F5DAE27B9D06100858682 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		EA0F5DAF27B9D07000858682 /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		EA0F5DB027B9D08000858682 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				EA0F5D7F27B9CE2F00858682 /* ViewController.swift */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		EA0F5DB127B9D08700858682 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				EA0F5D8427B9CE3100858682 /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
