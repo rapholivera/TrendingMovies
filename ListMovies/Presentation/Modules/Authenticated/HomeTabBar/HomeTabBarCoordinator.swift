@@ -18,10 +18,9 @@ class HomeTabBarCoordinator: BaseCoordinator, CoordinatorProtocol, TabBarCoordin
 
     private func addTabs() {
 
-        let statsController = UIViewController()// BaseNavigationController(rootViewController: UserListsViewController.create(coordinator: self))
-        let stats = UIImage(systemName: "house")
-        let statsCalls = UIImage(systemName: "house")
-        statsController.tabBarItem = UITabBarItem(title: "Feed", image: stats, selectedImage: statsCalls)
+        let statsController = ListMoviesFactory.build(coordinator: self)
+        let stats = UIImage(systemName: "film")
+        statsController.tabBarItem = UITabBarItem(title: "Movies", image: stats, selectedImage: stats)
 
         let settingsController = SettingsFactory.build(coordinator: self)
         let gear = UIImage(systemName: "gear")
@@ -37,6 +36,11 @@ class HomeTabBarCoordinator: BaseCoordinator, CoordinatorProtocol, TabBarCoordin
     }
 }
 
+// MARK: Movies coordinator
+extension HomeTabBarCoordinator: ListMoviesCoordinatorProtocol {
+
+}
+// MARK: Settings coordinator
 extension HomeTabBarCoordinator: SettingsCoordinatorProtocol {
 
 }
