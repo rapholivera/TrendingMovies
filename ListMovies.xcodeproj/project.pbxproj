@@ -207,13 +207,13 @@
 		EA0F5D7A27B9CE2F00858682 /* ListMovies */ = {
 			isa = PBXGroup;
 			children = (
-				EA0F5DB127B9D08700858682 /* Resources */,
-				EA0F5DB027B9D08000858682 /* Modules */,
-				EA0F5DAF27B9D07000858682 /* Infrastructure */,
-				EA0F5DAE27B9D06100858682 /* Domain */,
-				EA0F5DAD27B9CFB500858682 /* Data */,
-				EA0F5DAC27B9CFB000858682 /* Commom */,
 				EA0F5DAB27B9CFA200858682 /* Application */,
+				EA0F5DAC27B9CFB000858682 /* Commom */,
+				EA0F5DAD27B9CFB500858682 /* Data */,
+				EA0F5DAE27B9D06100858682 /* Domain */,
+				EA0F5DAF27B9D07000858682 /* Infrastructure */,
+				EA0F5DB027B9D08000858682 /* Modules */,
+				EA0F5DB127B9D08700858682 /* Resources */,
 			);
 			path = ListMovies;
 			sourceTree = "<group>";
