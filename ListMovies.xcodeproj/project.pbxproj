@@ -65,6 +65,13 @@
 		EA0F5E3027B9ECF200858682 /* UIButton+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0F5E2F27B9ECF200858682 /* UIButton+Gradient.swift */; };
 		EA0F5E3527B9F20200858682 /* NetworkEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0F5E3427B9F20200858682 /* NetworkEnvironment.swift */; };
 		EA0F5E3727B9F24400858682 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0F5E3627B9F24400858682 /* NetworkManager.swift */; };
+		EA0F5E3A27B9F2AE00858682 /* NetworkEngineRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0F5E3927B9F2AE00858682 /* NetworkEngineRouter.swift */; };
+		EA0F5E3D27B9F34300858682 /* EndpointTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0F5E3C27B9F34300858682 /* EndpointTargetType.swift */; };
+		EA0F5E3F27B9F35300858682 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0F5E3E27B9F35300858682 /* HTTPMethod.swift */; };
+		EA0F5E4127B9F36700858682 /* HTTPTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0F5E4027B9F36700858682 /* HTTPTask.swift */; };
+		EA0F5E4427B9F38E00858682 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0F5E4327B9F38E00858682 /* ParameterEncoding.swift */; };
+		EA0F5E4627B9F3A400858682 /* URLParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0F5E4527B9F3A400858682 /* URLParameterEncoder.swift */; };
+		EA0F5E4827B9F3B800858682 /* JSONParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0F5E4727B9F3B800858682 /* JSONParameterEncoder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -146,6 +153,13 @@
 		EA0F5E2F27B9ECF200858682 /* UIButton+Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Gradient.swift"; sourceTree = "<group>"; };
 		EA0F5E3427B9F20200858682 /* NetworkEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkEnvironment.swift; sourceTree = "<group>"; };
 		EA0F5E3627B9F24400858682 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		EA0F5E3927B9F2AE00858682 /* NetworkEngineRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkEngineRouter.swift; sourceTree = "<group>"; };
+		EA0F5E3C27B9F34300858682 /* EndpointTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointTargetType.swift; sourceTree = "<group>"; };
+		EA0F5E3E27B9F35300858682 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		EA0F5E4027B9F36700858682 /* HTTPTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPTask.swift; sourceTree = "<group>"; };
+		EA0F5E4327B9F38E00858682 /* ParameterEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterEncoding.swift; sourceTree = "<group>"; };
+		EA0F5E4527B9F3A400858682 /* URLParameterEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLParameterEncoder.swift; sourceTree = "<group>"; };
+		EA0F5E4727B9F3B800858682 /* JSONParameterEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParameterEncoder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -523,6 +537,8 @@
 		EA0F5E3227B9F1D900858682 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				EA0F5E3B27B9F32300858682 /* Layer */,
+				EA0F5E3827B9F2A100858682 /* Engine */,
 				EA0F5E3327B9F1E700858682 /* Enviroment */,
 			);
 			path = Networking;
@@ -535,6 +551,35 @@
 				EA0F5E3627B9F24400858682 /* NetworkManager.swift */,
 			);
 			path = Enviroment;
+			sourceTree = "<group>";
+		};
+		EA0F5E3827B9F2A100858682 /* Engine */ = {
+			isa = PBXGroup;
+			children = (
+				EA0F5E3927B9F2AE00858682 /* NetworkEngineRouter.swift */,
+			);
+			path = Engine;
+			sourceTree = "<group>";
+		};
+		EA0F5E3B27B9F32300858682 /* Layer */ = {
+			isa = PBXGroup;
+			children = (
+				EA0F5E4227B9F37500858682 /* Encoding */,
+				EA0F5E3C27B9F34300858682 /* EndpointTargetType.swift */,
+				EA0F5E3E27B9F35300858682 /* HTTPMethod.swift */,
+				EA0F5E4027B9F36700858682 /* HTTPTask.swift */,
+			);
+			path = Layer;
+			sourceTree = "<group>";
+		};
+		EA0F5E4227B9F37500858682 /* Encoding */ = {
+			isa = PBXGroup;
+			children = (
+				EA0F5E4327B9F38E00858682 /* ParameterEncoding.swift */,
+				EA0F5E4527B9F3A400858682 /* URLParameterEncoder.swift */,
+				EA0F5E4727B9F3B800858682 /* JSONParameterEncoder.swift */,
+			);
+			path = Encoding;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -703,10 +748,12 @@
 				EA0F5DEF27B9DFEC00858682 /* KeyedArchiverManager.swift in Sources */,
 				EA0F5DCA27B9D70C00858682 /* ViewStateSubject.swift in Sources */,
 				EA0F5DF727B9E16800858682 /* ActionSheetViewController.swift in Sources */,
+				EA0F5E3D27B9F34300858682 /* EndpointTargetType.swift in Sources */,
 				EA0F5DC727B9D6BF00858682 /* BaseViewModel.swift in Sources */,
 				EA0F5E0627B9E38800858682 /* DefaultContainerRepository.swift in Sources */,
 				EA0F5DD827B9DA7E00858682 /* AppButton.swift in Sources */,
 				EA0F5E1327B9E4DD00858682 /* APIError.swift in Sources */,
+				EA0F5E4827B9F3B800858682 /* JSONParameterEncoder.swift in Sources */,
 				EA0F5E0E27B9E46000858682 /* LoginRepository.swift in Sources */,
 				EA0F5E0927B9E3ED00858682 /* LoginViewModel.swift in Sources */,
 				EA0F5DE527B9DE0100858682 /* UserDB.swift in Sources */,
@@ -725,6 +772,7 @@
 				EA0F5D7C27B9CE2F00858682 /* AppDelegate.swift in Sources */,
 				EA0F5E3727B9F24400858682 /* NetworkManager.swift in Sources */,
 				EA0F5E1C27B9E68500858682 /* DefaultLoginRepository.swift in Sources */,
+				EA0F5E3A27B9F2AE00858682 /* NetworkEngineRouter.swift in Sources */,
 				EA0F5E3527B9F20200858682 /* NetworkEnvironment.swift in Sources */,
 				EA0F5E2827B9EB7300858682 /* UITextField+Publisher.swift in Sources */,
 				EA0F5DC127B9D63400858682 /* ContainerFactory.swift in Sources */,
@@ -732,10 +780,12 @@
 				EA0F5DBA27B9D4D000858682 /* ContainerViewController.swift in Sources */,
 				EA0F5DCE27B9D77A00858682 /* PlaceholderViewModel.swift in Sources */,
 				EA0F5DE327B9DDE700858682 /* UserSessionDB.swift in Sources */,
+				EA0F5E4627B9F3A400858682 /* URLParameterEncoder.swift in Sources */,
 				EA0F5DBC27B9D53700858682 /* BaseViewController.swift in Sources */,
 				EA0F5E1E27B9E84400858682 /* BaseTextField.swift in Sources */,
 				EA0F5D7E27B9CE2F00858682 /* SceneDelegate.swift in Sources */,
 				EA0F5DCC27B9D75D00858682 /* ViewState.swift in Sources */,
+				EA0F5E4427B9F38E00858682 /* ParameterEncoding.swift in Sources */,
 				EA0F5E2627B9EAF200858682 /* UITextField+Appearence.swift in Sources */,
 				EA0F5DF327B9E12000858682 /* ActionSheetViewModel.swift in Sources */,
 				EA0F5DC427B9D67400858682 /* ContainerViewModel.swift in Sources */,
@@ -744,6 +794,8 @@
 				EA0F5E0C27B9E40400858682 /* LoginViewController.swift in Sources */,
 				EA0F5DDF27B9DD6C00858682 /* SessionManager.swift in Sources */,
 				EA0F5DED27B9DFD500858682 /* UserSessionDataStore.swift in Sources */,
+				EA0F5E3F27B9F35300858682 /* HTTPMethod.swift in Sources */,
+				EA0F5E4127B9F36700858682 /* HTTPTask.swift in Sources */,
 				EA0F5E1827B9E57300858682 /* LoginView.swift in Sources */,
 				EA0F5E1527B9E52700858682 /* LoginFactory.swift in Sources */,
 				EA0F5DBF27B9D5B200858682 /* BaseView.swift in Sources */,

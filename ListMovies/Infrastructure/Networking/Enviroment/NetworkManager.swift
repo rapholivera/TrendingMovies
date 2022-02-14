@@ -10,12 +10,12 @@ import UIKit
 struct NetworkManager {
     // MARK: - Vars & Lets
     static let networkEnviroment: NetworkEnvironment = .production
-    
+
     struct URLs {
         static var baseURL: URL {
-            
+
             var base: String = ""
-            
+
             switch networkEnviroment {
                 case .dev:
                     base = "https://api.test.com/dev/"
@@ -31,7 +31,7 @@ struct NetworkManager {
             return url
         }
     }
-    
+
     struct Headers {
         static var contentTypeApplicationJSON = ["Content-Type": "application/json"]
     }
