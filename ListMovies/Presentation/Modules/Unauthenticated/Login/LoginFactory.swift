@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LoginFactory: NSObject {
+class LoginFactory {
     // MARK: - Life Cycle
     class func build(coordinator: LoginCoordinatorProtocol) -> LoginViewController {
         let repository = DefaultLoginRepository()

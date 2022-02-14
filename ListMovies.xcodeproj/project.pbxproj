@@ -70,6 +70,15 @@
 		EA0F5E4427B9F38E00858682 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0F5E4327B9F38E00858682 /* ParameterEncoding.swift */; };
 		EA0F5E4627B9F3A400858682 /* URLParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0F5E4527B9F3A400858682 /* URLParameterEncoder.swift */; };
 		EA0F5E4827B9F3B800858682 /* JSONParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0F5E4727B9F3B800858682 /* JSONParameterEncoder.swift */; };
+		EA0F5E4E27BA1C8300858682 /* HomeTabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0F5E4D27BA1C8300858682 /* HomeTabBarCoordinator.swift */; };
+		EA0F5E5027BA1CA500858682 /* HomeTabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0F5E4F27BA1CA500858682 /* HomeTabBarViewModel.swift */; };
+		EA0F5E5227BA1CEB00858682 /* HomeTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0F5E5127BA1CEB00858682 /* HomeTabBarViewController.swift */; };
+		EA0F5E5427BA1D4400858682 /* HomeTabBarFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0F5E5327BA1D4400858682 /* HomeTabBarFactory.swift */; };
+		EA0F5E5927BA1FEC00858682 /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0F5E5827BA1FEB00858682 /* SettingsCoordinator.swift */; };
+		EA0F5E5E27BA204A00858682 /* SettingsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0F5E5D27BA204A00858682 /* SettingsFactory.swift */; };
+		EA0F5E6027BA206800858682 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0F5E5F27BA206800858682 /* SettingsViewController.swift */; };
+		EA0F5E6227BA207900858682 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0F5E6127BA207900858682 /* SettingsView.swift */; };
+		EA0F5E6427BA20A500858682 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0F5E6327BA20A500858682 /* SettingsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -156,6 +165,15 @@
 		EA0F5E4327B9F38E00858682 /* ParameterEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterEncoding.swift; sourceTree = "<group>"; };
 		EA0F5E4527B9F3A400858682 /* URLParameterEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLParameterEncoder.swift; sourceTree = "<group>"; };
 		EA0F5E4727B9F3B800858682 /* JSONParameterEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParameterEncoder.swift; sourceTree = "<group>"; };
+		EA0F5E4D27BA1C8300858682 /* HomeTabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarCoordinator.swift; sourceTree = "<group>"; };
+		EA0F5E4F27BA1CA500858682 /* HomeTabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarViewModel.swift; sourceTree = "<group>"; };
+		EA0F5E5127BA1CEB00858682 /* HomeTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarViewController.swift; sourceTree = "<group>"; };
+		EA0F5E5327BA1D4400858682 /* HomeTabBarFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarFactory.swift; sourceTree = "<group>"; };
+		EA0F5E5827BA1FEB00858682 /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
+		EA0F5E5D27BA204A00858682 /* SettingsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsFactory.swift; sourceTree = "<group>"; };
+		EA0F5E5F27BA206800858682 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		EA0F5E6127BA207900858682 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		EA0F5E6327BA20A500858682 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,7 +230,7 @@
 				EA0F5DAD27B9CFB500858682 /* Data */,
 				EA0F5DAE27B9D06100858682 /* Domain */,
 				EA0F5DAF27B9D07000858682 /* Infrastructure */,
-				EA0F5DB027B9D08000858682 /* Modules */,
+				EA0F5E5627BA1EE500858682 /* Presentation */,
 				EA0F5DB127B9D08700858682 /* Resources */,
 			);
 			path = ListMovies;
@@ -249,8 +267,6 @@
 			isa = PBXGroup;
 			children = (
 				EA0F5DFF27B9E23C00858682 /* Extensions */,
-				EA0F5DC827B9D6FA00858682 /* Utils */,
-				EA0F5DB527B9D44C00858682 /* Base */,
 			);
 			path = Commom;
 			sourceTree = "<group>";
@@ -286,8 +302,8 @@
 			isa = PBXGroup;
 			children = (
 				EA0F5DB327B9D42700858682 /* AppCoordinator.swift */,
-				EA0F5DB827B9D49400858682 /* Container */,
-				EA0F5DB227B9D40900858682 /* Login */,
+				EA0F5E4927BA1C3D00858682 /* Authenticated */,
+				EA0F5E5527BA1EC200858682 /* Unauthenticated */,
 				EA0F5DF027B9E0F700858682 /* ActionSheet */,
 			);
 			path = Modules;
@@ -304,12 +320,11 @@
 		EA0F5DB227B9D40900858682 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				EA0F5E1627B9E56600858682 /* View */,
-				EA0F5E0F27B9E48300858682 /* Model */,
-				EA0F5E0A27B9E3F400858682 /* Controller */,
-				EA0F5E0727B9E3DD00858682 /* ViewModel */,
 				EA0F5DE927B9DF3A00858682 /* LoginCoordinator.swift */,
 				EA0F5E1427B9E52700858682 /* LoginFactory.swift */,
+				EA0F5E1627B9E56600858682 /* View */,
+				EA0F5E0F27B9E48300858682 /* Model */,
+				EA0F5E0727B9E3DD00858682 /* ViewModel */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -330,7 +345,7 @@
 			isa = PBXGroup;
 			children = (
 				EA0F5DC027B9D63400858682 /* ContainerFactory.swift */,
-				EA0F5DC527B9D67700858682 /* Controller */,
+				EA0F5DC527B9D67700858682 /* View */,
 				EA0F5DC227B9D66000858682 /* ViewModel */,
 			);
 			path = Container;
@@ -344,18 +359,18 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		EA0F5DC527B9D67700858682 /* Controller */ = {
+		EA0F5DC527B9D67700858682 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				EA0F5DB927B9D4D000858682 /* ContainerViewController.swift */,
 			);
-			path = Controller;
+			path = View;
 			sourceTree = "<group>";
 		};
 		EA0F5DC827B9D6FA00858682 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				EA0F5DD627B9DA6400858682 /* View */,
+				EA0F5DD627B9DA6400858682 /* CustomObjects */,
 				EA0F5DC927B9D70C00858682 /* ViewStateSubject.swift */,
 				EA0F5DCB27B9D75D00858682 /* ViewState.swift */,
 				EA0F5DCD27B9D77A00858682 /* PlaceholderViewModel.swift */,
@@ -376,14 +391,14 @@
 			path = Repositories;
 			sourceTree = "<group>";
 		};
-		EA0F5DD627B9DA6400858682 /* View */ = {
+		EA0F5DD627B9DA6400858682 /* CustomObjects */ = {
 			isa = PBXGroup;
 			children = (
 				EA0F5DD727B9DA7E00858682 /* AppButton.swift */,
 				EA0F5E1D27B9E84400858682 /* BaseTextField.swift */,
 				EA0F5E2327B9EACB00858682 /* BaseTitleLabel.swift */,
 			);
-			path = View;
+			path = CustomObjects;
 			sourceTree = "<group>";
 		};
 		EA0F5DDC27B9DCD800858682 /* Data */ = {
@@ -434,7 +449,7 @@
 			isa = PBXGroup;
 			children = (
 				EA0F5DF827B9E18700858682 /* Animation */,
-				EA0F5DF527B9E15300858682 /* Controller */,
+				EA0F5DF527B9E15300858682 /* View */,
 				EA0F5DF127B9E10E00858682 /* ViewModel */,
 			);
 			path = ActionSheet;
@@ -448,12 +463,12 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		EA0F5DF527B9E15300858682 /* Controller */ = {
+		EA0F5DF527B9E15300858682 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				EA0F5DF627B9E16800858682 /* ActionSheetViewController.swift */,
 			);
-			path = Controller;
+			path = View;
 			sourceTree = "<group>";
 		};
 		EA0F5DF827B9E18700858682 /* Animation */ = {
@@ -496,14 +511,6 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		EA0F5E0A27B9E3F400858682 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				EA0F5E0B27B9E40400858682 /* LoginViewController.swift */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
 		EA0F5E0F27B9E48300858682 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -516,6 +523,7 @@
 			isa = PBXGroup;
 			children = (
 				EA0F5E1727B9E57300858682 /* LoginView.swift */,
+				EA0F5E0B27B9E40400858682 /* LoginViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -574,6 +582,89 @@
 				EA0F5E4727B9F3B800858682 /* JSONParameterEncoder.swift */,
 			);
 			path = Encoding;
+			sourceTree = "<group>";
+		};
+		EA0F5E4927BA1C3D00858682 /* Authenticated */ = {
+			isa = PBXGroup;
+			children = (
+				EA0F5E4A27BA1C5000858682 /* HomeTabBar */,
+				EA0F5E5727BA1FCC00858682 /* Settings */,
+			);
+			path = Authenticated;
+			sourceTree = "<group>";
+		};
+		EA0F5E4A27BA1C5000858682 /* HomeTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				EA0F5E4D27BA1C8300858682 /* HomeTabBarCoordinator.swift */,
+				EA0F5E5327BA1D4400858682 /* HomeTabBarFactory.swift */,
+				EA0F5E4B27BA1C6600858682 /* View */,
+				EA0F5E4C27BA1C7200858682 /* ViewModel */,
+			);
+			path = HomeTabBar;
+			sourceTree = "<group>";
+		};
+		EA0F5E4B27BA1C6600858682 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EA0F5E5127BA1CEB00858682 /* HomeTabBarViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EA0F5E4C27BA1C7200858682 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				EA0F5E4F27BA1CA500858682 /* HomeTabBarViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		EA0F5E5527BA1EC200858682 /* Unauthenticated */ = {
+			isa = PBXGroup;
+			children = (
+				EA0F5DB227B9D40900858682 /* Login */,
+			);
+			path = Unauthenticated;
+			sourceTree = "<group>";
+		};
+		EA0F5E5627BA1EE500858682 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				EA0F5DB527B9D44C00858682 /* Base */,
+				EA0F5DB827B9D49400858682 /* Container */,
+				EA0F5DB027B9D08000858682 /* Modules */,
+				EA0F5DC827B9D6FA00858682 /* Utils */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		EA0F5E5727BA1FCC00858682 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				EA0F5E5827BA1FEB00858682 /* SettingsCoordinator.swift */,
+				EA0F5E5D27BA204A00858682 /* SettingsFactory.swift */,
+				EA0F5E5B27BA202400858682 /* View */,
+				EA0F5E5A27BA201A00858682 /* ViewModel */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		EA0F5E5A27BA201A00858682 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				EA0F5E6327BA20A500858682 /* SettingsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		EA0F5E5B27BA202400858682 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EA0F5E6127BA207900858682 /* SettingsView.swift */,
+				EA0F5E5F27BA206800858682 /* SettingsViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -737,10 +828,13 @@
 				EA0F5DE827B9DE7100858682 /* UserApi.swift in Sources */,
 				EA0F5DB727B9D45B00858682 /* BaseCoordinator.swift in Sources */,
 				EA0F5DFA27B9E19900858682 /* ActionSheetPresentTransitioning.swift in Sources */,
+				EA0F5E5927BA1FEC00858682 /* SettingsCoordinator.swift in Sources */,
 				EA0F5DEF27B9DFEC00858682 /* KeyedArchiverManager.swift in Sources */,
 				EA0F5DCA27B9D70C00858682 /* ViewStateSubject.swift in Sources */,
 				EA0F5DF727B9E16800858682 /* ActionSheetViewController.swift in Sources */,
+				EA0F5E6427BA20A500858682 /* SettingsViewModel.swift in Sources */,
 				EA0F5E3D27B9F34300858682 /* EndpointTargetType.swift in Sources */,
+				EA0F5E5227BA1CEB00858682 /* HomeTabBarViewController.swift in Sources */,
 				EA0F5DC727B9D6BF00858682 /* BaseViewModel.swift in Sources */,
 				EA0F5E0627B9E38800858682 /* DefaultContainerRepository.swift in Sources */,
 				EA0F5DD827B9DA7E00858682 /* AppButton.swift in Sources */,
@@ -752,10 +846,14 @@
 				EA0F5E2227B9EA6600858682 /* UIViewController+Remove.swift in Sources */,
 				EA0F5E2E27B9EC8500858682 /* KeyboardHandler.swift in Sources */,
 				EA0F5E1127B9E49500858682 /* LoginModel.swift in Sources */,
+				EA0F5E6227BA207900858682 /* SettingsView.swift in Sources */,
 				EA0F5E0127B9E25000858682 /* UIColor+CustomColors.swift in Sources */,
 				EA0F5DEA27B9DF3A00858682 /* LoginCoordinator.swift in Sources */,
+				EA0F5E6027BA206800858682 /* SettingsViewController.swift in Sources */,
 				EA0F5E1A27B9E5C800858682 /* UIColor+RGBA.swift in Sources */,
 				EA0F5DB427B9D42700858682 /* AppCoordinator.swift in Sources */,
+				EA0F5E5E27BA204A00858682 /* SettingsFactory.swift in Sources */,
+				EA0F5E4E27BA1C8300858682 /* HomeTabBarCoordinator.swift in Sources */,
 				EA0F5DD527B9DA3D00858682 /* ErrorView.swift in Sources */,
 				EA0F5DDB27B9DC1E00858682 /* BaseNavigationController.swift in Sources */,
 				EA0F5E2027B9E9CF00858682 /* PresentationHelper.swift in Sources */,
@@ -772,6 +870,7 @@
 				EA0F5DBA27B9D4D000858682 /* ContainerViewController.swift in Sources */,
 				EA0F5DCE27B9D77A00858682 /* PlaceholderViewModel.swift in Sources */,
 				EA0F5DE327B9DDE700858682 /* UserSessionDB.swift in Sources */,
+				EA0F5E5027BA1CA500858682 /* HomeTabBarViewModel.swift in Sources */,
 				EA0F5E4627B9F3A400858682 /* URLParameterEncoder.swift in Sources */,
 				EA0F5DBC27B9D53700858682 /* BaseViewController.swift in Sources */,
 				EA0F5E1E27B9E84400858682 /* BaseTextField.swift in Sources */,
@@ -786,6 +885,7 @@
 				EA0F5E0C27B9E40400858682 /* LoginViewController.swift in Sources */,
 				EA0F5DDF27B9DD6C00858682 /* SessionManager.swift in Sources */,
 				EA0F5DED27B9DFD500858682 /* UserSessionDataStore.swift in Sources */,
+				EA0F5E5427BA1D4400858682 /* HomeTabBarFactory.swift in Sources */,
 				EA0F5E3F27B9F35300858682 /* HTTPMethod.swift in Sources */,
 				EA0F5E4127B9F36700858682 /* HTTPTask.swift in Sources */,
 				EA0F5E1827B9E57300858682 /* LoginView.swift in Sources */,

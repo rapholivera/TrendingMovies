@@ -34,21 +34,16 @@ extension AppCoordinator: ContainerCoordinatorProtocol {
         switch page {
 
         case .unauthenticated:
-            let signinCoordinatior = LoginCoordinator(callback: nil)
-            containerViewController.setCurrentViewController(viewController: signinCoordinatior.start())
-            childCoordinator = signinCoordinatior
-
+            let loginCoordinator = LoginCoordinator(callback: nil)
+            containerViewController.setCurrentViewController(viewController: loginCoordinator.start())
+            childCoordinator = loginCoordinator
         case .buildProfile:
-            print("buildProfile")
-//            let welcomeCoordinator = WelcomeCoordinator(callback: nil)
-//            containerViewController.setCurrentViewController(viewController: welcomeCoordinator.start())
-//            childCoordinator = welcomeCoordinator
-
+            // TODO: Create an onboarding workflow
+            print("TODO: Create an onboarding workflow")
         case .home:
-            print("HOME")
-            // let chatCoordinator = TabCoordinator()
-            // containerViewController.setCurrentViewController(viewController: chatCoordinator.start())
-            // childCoordinator = chatCoordinator
+             let tabBarCoordinator = HomeTabBarCoordinator()
+             containerViewController.setCurrentViewController(viewController: tabBarCoordinator.start())
+             childCoordinator = tabBarCoordinator
 
         }
 
