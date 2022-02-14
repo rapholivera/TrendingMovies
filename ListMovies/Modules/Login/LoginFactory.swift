@@ -1,0 +1,17 @@
+//
+//  LoginFactory.swift
+//  ListMovies
+//
+//  Created by Raphael Oliveira on 2/13/22.
+//
+
+import UIKit
+
+class LoginFactory: NSObject {
+    // MARK: - Life Cycle
+    class func build(coordinator: LoginCoordinatorProtocol) -> LoginViewController {
+        let repository = DefaultLoginRepository()
+        let viewModel = DefaultLoginViewModel(coordinator: coordinator, repository: repository)
+        return LoginViewController(viewModel: viewModel)
+    }
+}
