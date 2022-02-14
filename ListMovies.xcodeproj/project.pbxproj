@@ -64,6 +64,7 @@
 		EA0F5E2E27B9EC8500858682 /* KeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0F5E2D27B9EC8500858682 /* KeyboardHandler.swift */; };
 		EA0F5E3027B9ECF200858682 /* UIButton+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0F5E2F27B9ECF200858682 /* UIButton+Gradient.swift */; };
 		EA0F5E3527B9F20200858682 /* NetworkEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0F5E3427B9F20200858682 /* NetworkEnvironment.swift */; };
+		EA0F5E3727B9F24400858682 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0F5E3627B9F24400858682 /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -144,6 +145,7 @@
 		EA0F5E2D27B9EC8500858682 /* KeyboardHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHandler.swift; sourceTree = "<group>"; };
 		EA0F5E2F27B9ECF200858682 /* UIButton+Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Gradient.swift"; sourceTree = "<group>"; };
 		EA0F5E3427B9F20200858682 /* NetworkEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkEnvironment.swift; sourceTree = "<group>"; };
+		EA0F5E3627B9F24400858682 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -530,6 +532,7 @@
 			isa = PBXGroup;
 			children = (
 				EA0F5E3427B9F20200858682 /* NetworkEnvironment.swift */,
+				EA0F5E3627B9F24400858682 /* NetworkManager.swift */,
 			);
 			path = Enviroment;
 			sourceTree = "<group>";
@@ -720,6 +723,7 @@
 				EA0F5E0427B9E35B00858682 /* ContainerRepository.swift in Sources */,
 				EA0F5DD327B9DA0C00858682 /* LoadingView.swift in Sources */,
 				EA0F5D7C27B9CE2F00858682 /* AppDelegate.swift in Sources */,
+				EA0F5E3727B9F24400858682 /* NetworkManager.swift in Sources */,
 				EA0F5E1C27B9E68500858682 /* DefaultLoginRepository.swift in Sources */,
 				EA0F5E3527B9F20200858682 /* NetworkEnvironment.swift in Sources */,
 				EA0F5E2827B9EB7300858682 /* UITextField+Publisher.swift in Sources */,
