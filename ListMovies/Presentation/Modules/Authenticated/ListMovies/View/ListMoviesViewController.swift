@@ -6,8 +6,16 @@
 //
 
 import UIKit
+import Combine
 
 protocol ListMoviesViewModel {
+    /// Called to reload fastquote tableview
+    var reloadMoviesTableViewObservable: AnyPublisher<Void, Never> { get }
+    /// Return number of rows in tableview datasource
+    var numberOfItems: Int { get }
+    /// Return model protocol to fill cell content
+    func getCellModel(at index: Int) -> TableViewCellModelProtocol
+    /// Fetch trending movies
     func loadMovies()
 }
 
@@ -23,8 +31,19 @@ class ListMoviesViewController: BaseViewController<ListMoviesView> {
         super.viewDidLoad()
         self.title = "Movies"
         customView.moviesTableView.dataSource = self
-        customView.moviesTableView.register(MovieTableViewCell.self, forCellReuseIdentifier: "cell")
+        customView.moviesTableView.delegate = self
+        customView.moviesTableView.register(cellClass: MovieTableViewCell.self)
         customView.moviesTableView.reloadData()
+    }
+
+    override func bind() {
+        super.bind()
+
+        viewModel.reloadMoviesTableViewObservable.sink(receiveValue: { [weak self] (_) in
+            DispatchQueue.main.async { [weak self] in
+                self?.customView.moviesTableView.reloadData()
+            }
+        }).store(in: &subscriptions)
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -33,18 +52,19 @@ class ListMoviesViewController: BaseViewController<ListMoviesView> {
     }
 }
 
-extension ListMoviesViewController: UITableViewDataSource {
+extension ListMoviesViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 40
+        return viewModel.numberOfItems
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell =  tableView.dequeueReusableCell(withIdentifier: "cell") as? MovieTableViewCell else {
-            return UITableViewCell()
-        }
+        let cellModel = viewModel.getCellModel(at: indexPath.row)
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellModel.cellIdentifier) as? TableViewCellProtocol
+        cell?.bind(with: cellModel)
+        return cell as? UITableViewCell ?? UITableViewCell()
+    }
 
-        cell.movieNameLabel.text = "teste"
-
-        return cell
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }

@@ -19,16 +19,16 @@ extension MoviesService: EndpointTargetType {
     var path: String {
         switch self {
         case .getTrendingMovies:
-            return "api/agora/getInvestorProfile"
+            return "trending/movie/week"
         }
     }
     var httpMethod: HTTPMethod {
-        return .post
+        return .get
     }
     var task: HTTPTask {
         switch self {
         case .getTrendingMovies:
-            return .requestParameters(bodyParameters: [:], bodyEncoding: .jsonEncoding, urlParameters: nil)
+            return .requestParameters(urlEncoding: .urlEncoding, urlParameters: ["api_key": "41402daeee2f923b29854d023fe22e1a"])
         }
     }
     var headers: [String: String]? {

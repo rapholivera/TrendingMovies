@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 protocol ListMoviesCoordinatorProtocol {
 
@@ -14,6 +15,8 @@ protocol ListMoviesCoordinatorProtocol {
 class DefaultListMoviesViewModel: BaseViewModel {
     private let coordinator: ListMoviesCoordinatorProtocol
     private let useCase: TrendingMoviesUseCase
+    private var tableViewCellModels: [TableViewCellModelProtocol] = []
+    private let reloadMoviesSubject = PassthroughSubject<Void, Never>()
 
     // MARK: - Init Methods
     init(coordinator: ListMoviesCoordinatorProtocol, useCase: TrendingMoviesUseCase) {
@@ -24,7 +27,35 @@ class DefaultListMoviesViewModel: BaseViewModel {
 }
 
 extension DefaultListMoviesViewModel: ListMoviesViewModel {
+    var reloadMoviesTableViewObservable: AnyPublisher<Void, Never> {
+        return reloadMoviesSubject.eraseToAnyPublisher()
+    }
+
+    var numberOfItems: Int {
+        return tableViewCellModels.count
+    }
+
+    func getCellModel(at index: Int) -> TableViewCellModelProtocol {
+        return tableViewCellModels[index]
+    }
     func loadMovies() {
 
+        newViewStateSubject.onLoading(text: "Loading movies...")
+
+        useCase.loadTrendingMovies { [weak self] response in
+
+            DispatchQueue.main.async { [weak self] in
+                self?.newViewStateSubject.onNormal()
+            }
+
+            switch response {
+            case .success(let movieModels):
+                self?.tableViewCellModels = movieModels
+                self?.reloadMoviesSubject.send()
+            case .failure(let error):
+                // TODO: - throw error message
+                print("error:\(String(describing: error.errorDescription))")
+            }
+        }
     }
 }

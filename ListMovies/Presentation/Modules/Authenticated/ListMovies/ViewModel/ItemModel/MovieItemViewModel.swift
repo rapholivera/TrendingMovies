@@ -9,5 +9,5 @@ import UIKit
 
 struct MovieItemViewModel: TableViewCellModelProtocol {
     let cellIdentifier: String = "MovieTableViewCell"
-    let movie: MovieApi
+    let movie: MovieDTO
 }

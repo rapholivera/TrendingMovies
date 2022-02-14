@@ -46,3 +46,11 @@ extension MovieTableViewCell {
         ])
     }
 }
+
+extension MovieTableViewCell: TableViewCellProtocol {
+    func bind(with data: TableViewCellModelProtocol) {
+        if let model = data as? MovieItemViewModel {
+            movieNameLabel.text = model.movie.title
+        }
+    }
+}

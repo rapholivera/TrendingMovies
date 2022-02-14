@@ -13,7 +13,7 @@ class DefaultMoviesRepository: MoviesRepository {
         return NetworkEngineRouter<MoviesService>()
     }
 
-    func getTrendingMovies(completion: @escaping (Result<[MovieApi], APIError>) -> Void) {
+    func getTrendingMovies(completion: @escaping (Result<PageDTO<MovieDTO>, APIError>) -> Void) {
         engine.request(target: .getTrendingMovies, completion: completion)
     }
 }

@@ -85,11 +85,12 @@
 		EA0F5E7227BA27EA00858682 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0F5E7127BA27EA00858682 /* MovieTableViewCell.swift */; };
 		EA0F5E7627BA2A2A00858682 /* TrendingMoviesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0F5E7527BA2A2A00858682 /* TrendingMoviesUseCase.swift */; };
 		EA0F5E7827BA2A8500858682 /* MoviesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0F5E7727BA2A8500858682 /* MoviesRepository.swift */; };
-		EA0F5E7A27BA2AB300858682 /* MovieApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0F5E7927BA2AB200858682 /* MovieApi.swift */; };
+		EA0F5E7A27BA2AB300858682 /* MovieDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0F5E7927BA2AB200858682 /* MovieDTO.swift */; };
 		EA0F5E7C27BA2B2000858682 /* TableViewCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0F5E7B27BA2B2000858682 /* TableViewCellProtocol.swift */; };
 		EA0F5E7F27BA2B9F00858682 /* MovieItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0F5E7E27BA2B9F00858682 /* MovieItemViewModel.swift */; };
 		EA0F5E8127BA2CC500858682 /* DefaultMoviesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0F5E8027BA2CC500858682 /* DefaultMoviesRepository.swift */; };
 		EA0F5E8427BA2D1500858682 /* MoviesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0F5E8327BA2D1500858682 /* MoviesService.swift */; };
+		EA0F5E8627BA397800858682 /* UITableView+Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0F5E8527BA397800858682 /* UITableView+Register.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -191,11 +192,12 @@
 		EA0F5E7127BA27EA00858682 /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
 		EA0F5E7527BA2A2A00858682 /* TrendingMoviesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingMoviesUseCase.swift; sourceTree = "<group>"; };
 		EA0F5E7727BA2A8500858682 /* MoviesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesRepository.swift; sourceTree = "<group>"; };
-		EA0F5E7927BA2AB200858682 /* MovieApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieApi.swift; sourceTree = "<group>"; };
+		EA0F5E7927BA2AB200858682 /* MovieDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDTO.swift; sourceTree = "<group>"; };
 		EA0F5E7B27BA2B2000858682 /* TableViewCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellProtocol.swift; sourceTree = "<group>"; };
 		EA0F5E7E27BA2B9F00858682 /* MovieItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieItemViewModel.swift; sourceTree = "<group>"; };
 		EA0F5E8027BA2CC500858682 /* DefaultMoviesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultMoviesRepository.swift; sourceTree = "<group>"; };
 		EA0F5E8327BA2D1500858682 /* MoviesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesService.swift; sourceTree = "<group>"; };
+		EA0F5E8527BA397800858682 /* UITableView+Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Register.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -467,7 +469,7 @@
 			isa = PBXGroup;
 			children = (
 				EA0F5DE727B9DE7100858682 /* UserApi.swift */,
-				EA0F5E7927BA2AB200858682 /* MovieApi.swift */,
+				EA0F5E7927BA2AB200858682 /* MovieDTO.swift */,
 			);
 			path = api;
 			sourceTree = "<group>";
@@ -517,6 +519,7 @@
 				EA0F5E2527B9EAF200858682 /* UITextField+Appearence.swift */,
 				EA0F5E2727B9EB7300858682 /* UITextField+Publisher.swift */,
 				EA0F5E2F27B9ECF200858682 /* UIButton+Gradient.swift */,
+				EA0F5E8527BA397800858682 /* UITableView+Register.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -940,7 +943,7 @@
 				EA0F5E7C27BA2B2000858682 /* TableViewCellProtocol.swift in Sources */,
 				EA0F5E4827B9F3B800858682 /* JSONParameterEncoder.swift in Sources */,
 				EA0F5E0E27B9E46000858682 /* LoginRepository.swift in Sources */,
-				EA0F5E7A27BA2AB300858682 /* MovieApi.swift in Sources */,
+				EA0F5E7A27BA2AB300858682 /* MovieDTO.swift in Sources */,
 				EA0F5E0927B9E3ED00858682 /* LoginViewModel.swift in Sources */,
 				EA0F5DE527B9DE0100858682 /* UserDB.swift in Sources */,
 				EA0F5E2227B9EA6600858682 /* UIViewController+Remove.swift in Sources */,
@@ -969,6 +972,7 @@
 				EA0F5E3A27B9F2AE00858682 /* NetworkEngineRouter.swift in Sources */,
 				EA0F5E3527B9F20200858682 /* NetworkEnvironment.swift in Sources */,
 				EA0F5E2827B9EB7300858682 /* UITextField+Publisher.swift in Sources */,
+				EA0F5E8627BA397800858682 /* UITableView+Register.swift in Sources */,
 				EA0F5DC127B9D63400858682 /* ContainerFactory.swift in Sources */,
 				EA0F5E7627BA2A2A00858682 /* TrendingMoviesUseCase.swift in Sources */,
 				EA0F5E3027B9ECF200858682 /* UIButton+Gradient.swift in Sources */,

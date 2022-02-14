@@ -23,7 +23,7 @@ class DefaultTrendingMoviesUseCase: TrendingMoviesUseCase {
         repository.getTrendingMovies { response in
             switch response {
             case .success(let movies):
-                let itemModels = movies.map({ MovieItemViewModel(movie: $0) })
+                let itemModels = movies.results.map({ MovieItemViewModel(movie: $0) })
                 completion(.success(itemModels))
             case .failure(let error):
                 completion(.failure(error))

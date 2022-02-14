@@ -56,23 +56,10 @@ class NetworkEngineRouter<EndPoint: EndpointTargetType>: NetworkRouter {
             switch route.task {
             case .request:
                 request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-            case .requestParameters(let bodyParameters,
-                                    let bodyEncoding,
+            case .requestParameters(let urlEncoding,
                                     let urlParameters):
 
-                try self.configureParameters(bodyParameters: bodyParameters,
-                                             bodyEncoding: bodyEncoding,
-                                             urlParameters: urlParameters,
-                                             request: &request)
-
-            case .requestParametersAndHeaders(let bodyParameters,
-                                              let bodyEncoding,
-                                              let urlParameters,
-                                              let additionalHeaders):
-
-                self.addAdditionalHeaders(additionalHeaders, request: &request)
-                try self.configureParameters(bodyParameters: bodyParameters,
-                                             bodyEncoding: bodyEncoding,
+                try self.configureParameters(urlEncoding: urlEncoding,
                                              urlParameters: urlParameters,
                                              request: &request)
             }
@@ -82,13 +69,11 @@ class NetworkEngineRouter<EndPoint: EndpointTargetType>: NetworkRouter {
         }
     }
 
-    fileprivate func configureParameters(bodyParameters: Parameters?,
-                                         bodyEncoding: ParameterEncoding,
-                                         urlParameters: Parameters?,
+    fileprivate func configureParameters(urlEncoding: ParameterEncoding,
+                                         urlParameters: Parameters? = nil,
                                          request: inout URLRequest) throws {
         do {
-            try bodyEncoding.encode(urlRequest: &request,
-                                    bodyParameters: bodyParameters, urlParameters: urlParameters)
+            try urlEncoding.encode(urlRequest: &request, urlParameters: urlParameters)
         } catch {
             throw error
         }

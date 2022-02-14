@@ -8,5 +8,5 @@
 import UIKit
 
 protocol MoviesRepository {
-    func getTrendingMovies(completion: @escaping (Result<[MovieApi], APIError>) -> Void)
+    func getTrendingMovies(completion: @escaping (Result<PageDTO<MovieDTO>, APIError>) -> Void)
 }

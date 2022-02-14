@@ -18,11 +18,11 @@ struct NetworkManager {
 
             switch networkEnviroment {
                 case .dev:
-                    base = "https://api.test.com/dev/"
+                    base = "https://api.themoviedb.org/3/"
                 case .production:
-                    base = "https://api.test.com/prod/"
+                    base = "https://api.themoviedb.org/3/"
                 case .stage:
-                    base = "https://api.test.com/staging/"
+                    base = "https://api.themoviedb.org/3/"
             }
 
             guard let url = URL(string: base) else {

@@ -20,6 +20,7 @@ class LoadingView: UIView {
         textLabel.numberOfLines = 0
         textLabel.textColor = .white
         textLabel.font = UIFont.systemFont(ofSize: 20)
+        textLabel.textAlignment = .center
         return textLabel
     }()
 
@@ -33,7 +34,7 @@ class LoadingView: UIView {
     }
 
     private func createScreen() {
-        backgroundColor = UIColor(white: 0, alpha: 0.85)
+        backgroundColor = .clear
         addSubview(activityIndicatorView)
         activityIndicatorView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
