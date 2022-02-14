@@ -15,8 +15,8 @@ protocol ContainerViewModelProtocol: BaseViewModelProtocol {
 
 class ContainerViewController: BaseViewController<BaseView> {
 
-    private var viewModel: ContainerViewModelProtocol! {
-        return baseViewModel as? ContainerViewModelProtocol
+    private var viewModel: ContainerViewModelProtocol {
+        return baseViewModel as! ContainerViewModelProtocol
     }
 
     private(set) var currentViewController: UIViewController? {
@@ -65,7 +65,7 @@ class ContainerViewController: BaseViewController<BaseView> {
 
     override func loadView() {
         super.loadView()
-        view.backgroundColor = .white
+        view.backgroundColor = .backgroundPrimaryColor
     }
 
     override func bind() {

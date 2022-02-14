@@ -9,5 +9,6 @@ import UIKit
 
 struct UserApi {
     let name: String
+    let code: String
     let mail: String
 }

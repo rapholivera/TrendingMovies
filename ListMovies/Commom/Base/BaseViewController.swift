@@ -29,12 +29,14 @@ class BaseViewController<CustomView: UIView>: UIViewController {
 
     override func loadView() {
         self.view = CustomView()
-        view.backgroundColor = .white
+        view.backgroundColor = .backgroundPrimaryColor
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        navigationItem.leftItemsSupplementBackButton = true
+        removeBackButtonTitle()
+        bind()
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {

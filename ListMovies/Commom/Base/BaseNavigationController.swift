@@ -50,7 +50,7 @@ class BaseNavigationController: UINavigationController {
    private func transparentNavigation() {
         navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationBar.shadowImage = UIImage()
-        navigationBar.backgroundColor = .white
+        navigationBar.backgroundColor = .backgroundPrimaryColor
         navigationBar.isTranslucent = true
         navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         view.backgroundColor = .clear

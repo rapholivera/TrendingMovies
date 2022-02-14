@@ -30,11 +30,11 @@ class ContainerViewModel: BaseViewModel {
     }
 }
 
-extension ContainerViewModel: ContainerCoordinatorProtocol {
+extension ContainerViewModel: ContainerViewModelProtocol {
     var applicationStateDidChange: CurrentValueSubject<ApplicationState, Error> {
         return containerRepository.applicationState
     }
-    func updateCurrentPage(_ page: ContentPageType) {
+    func updateCurrentPage(page: ContentPageType) {
         coordinator.updateCurrentPage(page)
     }
 }
