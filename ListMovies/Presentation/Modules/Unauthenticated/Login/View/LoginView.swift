@@ -13,7 +13,7 @@ class LoginView: BaseView {
 
     private let headerTitle: UILabel = {
         let header = BaseTitleLabel(textAlignment: .center)
-        header.text = "MVVM Project"
+        header.text = "Trending Movies"
         header.font = UIFont(name: "HelveticaNeue-Bold", size: 21.0)
         return header
     }()
