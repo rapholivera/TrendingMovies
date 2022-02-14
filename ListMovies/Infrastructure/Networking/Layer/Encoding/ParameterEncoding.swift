@@ -18,13 +18,11 @@ public enum ParameterEncoding {
     case urlEncoding
 
     public func encode(urlRequest: inout URLRequest,
-                       urlParameters: Parameters?) throws {
+                       urlParameters: Parameters) throws {
         do {
             switch self {
             case .urlEncoding:
-                guard let urlParameters = urlParameters else { return }
                 try URLParameterEncoder().encode(urlRequest: &urlRequest, with: urlParameters)
-
             }
         } catch {
             throw error

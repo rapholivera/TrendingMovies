@@ -28,7 +28,7 @@ extension MoviesService: EndpointTargetType {
     var task: HTTPTask {
         switch self {
         case .getTrendingMovies:
-            return .requestParameters(urlEncoding: .urlEncoding, urlParameters: ["api_key": "41402daeee2f923b29854d023fe22e1a"])
+            return .requestParameters(urlEncoding: .urlEncoding)
         }
     }
     var headers: [String: String]? {

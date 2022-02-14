@@ -10,6 +10,7 @@ import UIKit
 struct NetworkManager {
     // MARK: - Vars & Lets
     static let networkEnviroment: NetworkEnvironment = .production
+    static let MovieDbApiKey: String = "41402daeee2f923b29854d023fe22e1a"
 
     struct URLs {
         static var baseURL: URL {

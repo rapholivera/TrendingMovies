@@ -54,13 +54,15 @@ class NetworkEngineRouter<EndPoint: EndpointTargetType>: NetworkRouter {
 
         do {
             switch route.task {
-            case .request:
-                request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+
             case .requestParameters(let urlEncoding,
                                     let urlParameters):
 
+                var urlParametersFormatted: Parameters = urlParameters
+                urlParametersFormatted["api_key"] = NetworkManager.MovieDbApiKey
+
                 try self.configureParameters(urlEncoding: urlEncoding,
-                                             urlParameters: urlParameters,
+                                             urlParameters: urlParametersFormatted,
                                              request: &request)
             }
             return request
@@ -69,9 +71,7 @@ class NetworkEngineRouter<EndPoint: EndpointTargetType>: NetworkRouter {
         }
     }
 
-    fileprivate func configureParameters(urlEncoding: ParameterEncoding,
-                                         urlParameters: Parameters? = nil,
-                                         request: inout URLRequest) throws {
+    fileprivate func configureParameters(urlEncoding: ParameterEncoding, urlParameters: Parameters, request: inout URLRequest) throws {
         do {
             try urlEncoding.encode(urlRequest: &request, urlParameters: urlParameters)
         } catch {
