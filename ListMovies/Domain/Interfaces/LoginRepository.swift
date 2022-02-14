@@ -8,5 +8,5 @@
 import UIKit
 
 protocol LoginRepository {
-    func auth(credentials: LoginModel, completion: @escaping (Result<UserApi, APIError>) -> Void)
+    func auth(credentials: LoginModel, completion: @escaping (Result<UserDTO, APIError>) -> Void)
 }

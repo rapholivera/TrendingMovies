@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct UserApi {
+struct UserDTO {
     let name: String
     let code: String
     let mail: String

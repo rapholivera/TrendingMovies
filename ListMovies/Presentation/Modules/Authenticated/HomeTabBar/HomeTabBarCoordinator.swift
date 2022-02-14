@@ -27,8 +27,8 @@ class HomeTabBarCoordinator: BaseCoordinator, CoordinatorProtocol, TabBarCoordin
         settingsController.tabBarItem = UITabBarItem(title: "Settings", image: gear, selectedImage: gear)
 
         let vcs = [
-            statsController,
-            settingsController
+            BaseNavigationController(rootViewController: statsController),
+            BaseNavigationController(rootViewController: settingsController)
         ]
 
         tabViewController.setViewControllers(vcs, animated: false)

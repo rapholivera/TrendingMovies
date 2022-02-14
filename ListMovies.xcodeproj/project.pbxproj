@@ -31,7 +31,7 @@
 		EA0F5DDF27B9DD6C00858682 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0F5DDE27B9DD6C00858682 /* SessionManager.swift */; };
 		EA0F5DE327B9DDE700858682 /* UserSessionDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0F5DE227B9DDE700858682 /* UserSessionDB.swift */; };
 		EA0F5DE527B9DE0100858682 /* UserDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0F5DE427B9DE0100858682 /* UserDB.swift */; };
-		EA0F5DE827B9DE7100858682 /* UserApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0F5DE727B9DE7100858682 /* UserApi.swift */; };
+		EA0F5DE827B9DE7100858682 /* UserDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0F5DE727B9DE7100858682 /* UserDTO.swift */; };
 		EA0F5DEA27B9DF3A00858682 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0F5DE927B9DF3A00858682 /* LoginCoordinator.swift */; };
 		EA0F5DED27B9DFD500858682 /* UserSessionDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0F5DEC27B9DFD500858682 /* UserSessionDataStore.swift */; };
 		EA0F5DEF27B9DFEC00858682 /* KeyedArchiverManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0F5DEE27B9DFEC00858682 /* KeyedArchiverManager.swift */; };
@@ -139,7 +139,7 @@
 		EA0F5DDE27B9DD6C00858682 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		EA0F5DE227B9DDE700858682 /* UserSessionDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSessionDB.swift; sourceTree = "<group>"; };
 		EA0F5DE427B9DE0100858682 /* UserDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDB.swift; sourceTree = "<group>"; };
-		EA0F5DE727B9DE7100858682 /* UserApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserApi.swift; sourceTree = "<group>"; };
+		EA0F5DE727B9DE7100858682 /* UserDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDTO.swift; sourceTree = "<group>"; };
 		EA0F5DE927B9DF3A00858682 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
 		EA0F5DEC27B9DFD500858682 /* UserSessionDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSessionDataStore.swift; sourceTree = "<group>"; };
 		EA0F5DEE27B9DFEC00858682 /* KeyedArchiverManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyedArchiverManager.swift; sourceTree = "<group>"; };
@@ -468,7 +468,7 @@
 		EA0F5DE627B9DE4B00858682 /* api */ = {
 			isa = PBXGroup;
 			children = (
-				EA0F5DE727B9DE7100858682 /* UserApi.swift */,
+				EA0F5DE727B9DE7100858682 /* UserDTO.swift */,
 				EA0F5E7927BA2AB200858682 /* MovieDTO.swift */,
 			);
 			path = api;
@@ -925,7 +925,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA0F5DFE27B9E1AF00858682 /* ActionSheetPresentationManager.swift in Sources */,
-				EA0F5DE827B9DE7100858682 /* UserApi.swift in Sources */,
+				EA0F5DE827B9DE7100858682 /* UserDTO.swift in Sources */,
 				EA0F5DB727B9D45B00858682 /* BaseCoordinator.swift in Sources */,
 				EA0F5DFA27B9E19900858682 /* ActionSheetPresentTransitioning.swift in Sources */,
 				EA0F5DEF27B9DFEC00858682 /* KeyedArchiverManager.swift in Sources */,

@@ -36,7 +36,7 @@ class UserDB: NSObject, NSCoding {
 
 extension UserDB {
 
-    static func map(userAPI: UserApi) -> UserDB {
+    static func map(userAPI: UserDTO) -> UserDB {
         return UserDB(name: userAPI.name, email: userAPI.mail)
     }
 }

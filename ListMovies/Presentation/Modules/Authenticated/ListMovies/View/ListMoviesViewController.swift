@@ -9,7 +9,7 @@ import UIKit
 import Combine
 
 protocol ListMoviesViewModel {
-    /// Called to reload fastquote tableview
+    /// Called to reload  tableview after service response
     var reloadMoviesTableViewObservable: AnyPublisher<Void, Never> { get }
     /// Return number of rows in tableview datasource
     var numberOfItems: Int { get }
@@ -29,11 +29,12 @@ class ListMoviesViewController: BaseViewController<ListMoviesView> {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Movies"
+        self.title = "Trending Movies"
         customView.moviesTableView.dataSource = self
         customView.moviesTableView.delegate = self
         customView.moviesTableView.register(cellClass: MovieTableViewCell.self)
-        customView.moviesTableView.reloadData()
+
+        viewModel.loadMovies()
     }
 
     override func bind() {
@@ -44,11 +45,6 @@ class ListMoviesViewController: BaseViewController<ListMoviesView> {
                 self?.customView.moviesTableView.reloadData()
             }
         }).store(in: &subscriptions)
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        viewModel.loadMovies()
     }
 }
 

@@ -27,17 +27,19 @@ class DefaultListMoviesViewModel: BaseViewModel {
 }
 
 extension DefaultListMoviesViewModel: ListMoviesViewModel {
+    /// Called to reload  tableview after service response
     var reloadMoviesTableViewObservable: AnyPublisher<Void, Never> {
         return reloadMoviesSubject.eraseToAnyPublisher()
     }
-
+    /// Return number of rows in tableview datasource
     var numberOfItems: Int {
         return tableViewCellModels.count
     }
-
+    /// Return model protocol to fill cell content
     func getCellModel(at index: Int) -> TableViewCellModelProtocol {
         return tableViewCellModels[index]
     }
+    /// Fetch trending movies
     func loadMovies() {
 
         newViewStateSubject.onLoading(text: "Loading movies...")
