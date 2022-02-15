@@ -33,12 +33,12 @@ class LoginView: BaseView {
         return textField
     }()
 
-    internal let authButton: AppButton = {
-        return AppButton(backgroundColor: .clear, title: "Sign In")
+    internal let authButton: BaseButton = {
+        return BaseButton(backgroundColor: .clear, title: "Sign In")
     }()
 
     internal let registerButton: UIButton = {
-        return AppButton(backgroundColor: .backgroundSecundaryColor, title: "Create account")
+        return BaseButton(backgroundColor: .backgroundSecundaryColor, title: "Create account")
     }()
 
     // MARK: - Lyfe Cicle

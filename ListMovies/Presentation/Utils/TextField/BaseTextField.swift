@@ -128,16 +128,6 @@ extension BaseTextField {
 
 extension BaseTextField {
 
-    var inputPickerView: UIView? {
-        get { return textField.inputView }
-        set { textField.inputView = newValue }
-    }
-
-    var cornerRadius: CGFloat {
-        get { return textField.layer.cornerRadius }
-        set { textField.layer.cornerRadius = newValue }
-    }
-
     var textColor: UIColor? {
         get { return textField.textColor }
         set { textField.textColor = newValue }

@@ -1,5 +1,5 @@
 //
-//  AppButton.swift
+//  BaseButton.swift
 //  ListMovies
 //
 //  Created by Raphael Oliveira on 2/13/22.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AppButton: UIButton {
+class BaseButton: UIButton {
 
     // MARK: - Init
 

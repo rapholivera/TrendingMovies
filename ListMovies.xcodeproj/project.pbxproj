@@ -26,7 +26,7 @@
 		EA0F5DCE27B9D77A00858682 /* PlaceholderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0F5DCD27B9D77A00858682 /* PlaceholderViewModel.swift */; };
 		EA0F5DD327B9DA0C00858682 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0F5DD227B9DA0C00858682 /* LoadingView.swift */; };
 		EA0F5DD527B9DA3D00858682 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0F5DD427B9DA3D00858682 /* ErrorView.swift */; };
-		EA0F5DD827B9DA7E00858682 /* AppButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0F5DD727B9DA7E00858682 /* AppButton.swift */; };
+		EA0F5DD827B9DA7E00858682 /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0F5DD727B9DA7E00858682 /* BaseButton.swift */; };
 		EA0F5DDB27B9DC1E00858682 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0F5DDA27B9DC1E00858682 /* BaseNavigationController.swift */; };
 		EA0F5DDF27B9DD6C00858682 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0F5DDE27B9DD6C00858682 /* SessionManager.swift */; };
 		EA0F5DE327B9DDE700858682 /* UserSessionDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0F5DE227B9DDE700858682 /* UserSessionDB.swift */; };
@@ -134,7 +134,7 @@
 		EA0F5DCD27B9D77A00858682 /* PlaceholderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderViewModel.swift; sourceTree = "<group>"; };
 		EA0F5DD227B9DA0C00858682 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		EA0F5DD427B9DA3D00858682 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
-		EA0F5DD727B9DA7E00858682 /* AppButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppButton.swift; sourceTree = "<group>"; };
+		EA0F5DD727B9DA7E00858682 /* BaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
 		EA0F5DDA27B9DC1E00858682 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		EA0F5DDE27B9DD6C00858682 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		EA0F5DE227B9DDE700858682 /* UserSessionDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSessionDB.swift; sourceTree = "<group>"; };
@@ -396,15 +396,13 @@
 		EA0F5DC827B9D6FA00858682 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				EA0F5DD627B9DA6400858682 /* CustomObjects */,
-				EA0F5DC927B9D70C00858682 /* ViewStateSubject.swift */,
-				EA0F5DCB27B9D75D00858682 /* ViewState.swift */,
+				EA4D6FFE27BB2B7E00F3B414 /* Cell */,
+				EA4D6FFD27BB2B6600F3B414 /* View */,
+				EA4D6FFC27BB2B0F00F3B414 /* Label */,
+				EA4D6FFB27BB2B0500F3B414 /* TextField */,
+				EA4D6FFA27BB2AFB00F3B414 /* Button */,
 				EA0F5DCD27B9D77A00858682 /* PlaceholderViewModel.swift */,
-				EA0F5DD227B9DA0C00858682 /* LoadingView.swift */,
-				EA0F5DD427B9DA3D00858682 /* ErrorView.swift */,
-				EA0F5E1227B9E4DD00858682 /* APIError.swift */,
 				EA0F5E1F27B9E9CF00858682 /* PresentationHelper.swift */,
-				EA0F5E7B27BA2B2000858682 /* TableViewCellProtocol.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -417,16 +415,6 @@
 				EA0F5E8027BA2CC500858682 /* DefaultMoviesRepository.swift */,
 			);
 			path = Repositories;
-			sourceTree = "<group>";
-		};
-		EA0F5DD627B9DA6400858682 /* CustomObjects */ = {
-			isa = PBXGroup;
-			children = (
-				EA0F5DD727B9DA7E00858682 /* AppButton.swift */,
-				EA0F5E1D27B9E84400858682 /* BaseTextField.swift */,
-				EA0F5E2327B9EACB00858682 /* BaseTitleLabel.swift */,
-			);
-			path = CustomObjects;
 			sourceTree = "<group>";
 		};
 		EA0F5DDC27B9DCD800858682 /* Data */ = {
@@ -598,6 +586,7 @@
 			isa = PBXGroup;
 			children = (
 				EA0F5E4227B9F37500858682 /* Encoding */,
+				EA0F5E1227B9E4DD00858682 /* APIError.swift */,
 				EA0F5E3C27B9F34300858682 /* EndpointTargetType.swift */,
 				EA0F5E3E27B9F35300858682 /* HTTPMethod.swift */,
 				EA0F5E4027B9F36700858682 /* HTTPTask.swift */,
@@ -765,6 +754,49 @@
 				EA0F5E8327BA2D1500858682 /* MoviesService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		EA4D6FFA27BB2AFB00F3B414 /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				EA0F5DD727B9DA7E00858682 /* BaseButton.swift */,
+			);
+			path = Button;
+			sourceTree = "<group>";
+		};
+		EA4D6FFB27BB2B0500F3B414 /* TextField */ = {
+			isa = PBXGroup;
+			children = (
+				EA0F5E1D27B9E84400858682 /* BaseTextField.swift */,
+			);
+			path = TextField;
+			sourceTree = "<group>";
+		};
+		EA4D6FFC27BB2B0F00F3B414 /* Label */ = {
+			isa = PBXGroup;
+			children = (
+				EA0F5E2327B9EACB00858682 /* BaseTitleLabel.swift */,
+			);
+			path = Label;
+			sourceTree = "<group>";
+		};
+		EA4D6FFD27BB2B6600F3B414 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EA0F5DC927B9D70C00858682 /* ViewStateSubject.swift */,
+				EA0F5DCB27B9D75D00858682 /* ViewState.swift */,
+				EA0F5DD227B9DA0C00858682 /* LoadingView.swift */,
+				EA0F5DD427B9DA3D00858682 /* ErrorView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EA4D6FFE27BB2B7E00F3B414 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				EA0F5E7B27BA2B2000858682 /* TableViewCellProtocol.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -938,7 +970,7 @@
 				EA0F5E7227BA27EA00858682 /* MovieTableViewCell.swift in Sources */,
 				EA0F5DC727B9D6BF00858682 /* BaseViewModel.swift in Sources */,
 				EA0F5E0627B9E38800858682 /* DefaultContainerRepository.swift in Sources */,
-				EA0F5DD827B9DA7E00858682 /* AppButton.swift in Sources */,
+				EA0F5DD827B9DA7E00858682 /* BaseButton.swift in Sources */,
 				EA0F5E1327B9E4DD00858682 /* APIError.swift in Sources */,
 				EA0F5E7C27BA2B2000858682 /* TableViewCellProtocol.swift in Sources */,
 				EA0F5E4827B9F3B800858682 /* JSONParameterEncoder.swift in Sources */,

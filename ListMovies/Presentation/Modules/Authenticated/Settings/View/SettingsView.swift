@@ -12,7 +12,7 @@ class SettingsView: BaseView {
     // MARK: - UI Elements
 
     internal let logoutButton: UIButton = {
-        return AppButton(backgroundColor: UIColor.errorRed, title: "Logout")
+        return BaseButton(backgroundColor: UIColor.errorRed, title: "Logout")
     }()
 
     // MARK: - Lyfe Cicle
