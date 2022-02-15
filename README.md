@@ -40,3 +40,18 @@ Note: Domain Layer should not include anything from other layers(e.g Presentatio
 * [SwiftLint](https://github.com/realm/SwiftLint)
 * [IQKeyboardManager](https://github.com/hackiftekhar/IQKeyboardManager)
 
+## Roadmap
+
+- [x] Login
+- [x] Login - Check user input to enable login button
+- [ ] Login - Create a CPF Mask
+- [x] Login Tests - Check user input
+- [ ] Login Tests - Check callback for user bad credentials
+- [ ] Login Tests - Check callback for user good credentials
+- [x] Trending
+- [x] Trending - List of trending movies
+- [ ] Trending - Poster Movies
+- [ ] Trending - Search
+- [ ] Trending - Open Movie Details
+- [ ] Trending Tests - Check success movies response
+- [ ] Trending Tests - Check failure movies response
