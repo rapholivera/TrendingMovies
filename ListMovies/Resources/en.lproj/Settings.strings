@@ -1,0 +1,11 @@
+/* 
+  Settings.strings
+  ListMovies
+
+  Created by Raphael Oliveira on 2/14/22.
+  
+*/
+
+"settings" = "Settings";
+"logout" = "Log Out";
+"logoutConfirmationMessage" = "Are you sure you want to logout?";

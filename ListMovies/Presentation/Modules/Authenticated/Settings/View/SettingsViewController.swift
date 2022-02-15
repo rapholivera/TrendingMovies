@@ -23,7 +23,7 @@ class SettingsViewController: BaseViewController<SettingsView> {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "Settings" // R.string.title.settings()
+        navigationItem.title = Localized.Settings.SettingsTitle
         customView.logoutButton.addTarget(self, action: #selector(clickLogout), for: .touchUpInside)
     }
 
@@ -31,13 +31,13 @@ class SettingsViewController: BaseViewController<SettingsView> {
 
     @objc func clickLogout() {
 
-        let alert = UIAlertController(title: nil, message: "Are you sure you want to logout?", preferredStyle: .alert)
+        let alert = UIAlertController(title: nil, message: Localized.Settings.LogOutConfirmation, preferredStyle: .alert)
 
-        alert.addAction(UIAlertAction(title: "Logout"/*R.string.base.defaultLogout()*/, style: .destructive, handler: { (_) in
+        alert.addAction(UIAlertAction(title: Localized.Settings.LogOut, style: .destructive, handler: { (_) in
             // Zapdesk.disconnect()
             SessionManager.shared.logout()
         }))
-        alert.addAction(UIAlertAction(title: "Cancel"/*R.string.base.defaultCancel()*/, style: .default, handler: { (_) in }))
+        alert.addAction(UIAlertAction(title: Localized.Default.Cancel, style: .default, handler: { (_) in }))
 
         present(alert, animated: true, completion: nil)
     }

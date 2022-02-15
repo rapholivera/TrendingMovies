@@ -91,6 +91,10 @@
 		EA0F5E8127BA2CC500858682 /* DefaultMoviesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0F5E8027BA2CC500858682 /* DefaultMoviesRepository.swift */; };
 		EA0F5E8427BA2D1500858682 /* MoviesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0F5E8327BA2D1500858682 /* MoviesService.swift */; };
 		EA0F5E8627BA397800858682 /* UITableView+Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0F5E8527BA397800858682 /* UITableView+Register.swift */; };
+		EA4D700627BB2CDC00F3B414 /* Localized+Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4D700527BB2CDC00F3B414 /* Localized+Settings.swift */; };
+		EA4D700927BB2CFB00F3B414 /* Settings.strings in Resources */ = {isa = PBXBuildFile; fileRef = EA4D700B27BB2CFB00F3B414 /* Settings.strings */; };
+		EA4D700E27BB2EAD00F3B414 /* Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4D700D27BB2EAD00F3B414 /* Localized.swift */; };
+		EA4D701127BB2EF400F3B414 /* Default.strings in Resources */ = {isa = PBXBuildFile; fileRef = EA4D701327BB2EF400F3B414 /* Default.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -198,6 +202,12 @@
 		EA0F5E8027BA2CC500858682 /* DefaultMoviesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultMoviesRepository.swift; sourceTree = "<group>"; };
 		EA0F5E8327BA2D1500858682 /* MoviesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesService.swift; sourceTree = "<group>"; };
 		EA0F5E8527BA397800858682 /* UITableView+Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Register.swift"; sourceTree = "<group>"; };
+		EA4D700527BB2CDC00F3B414 /* Localized+Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Localized+Settings.swift"; sourceTree = "<group>"; };
+		EA4D700A27BB2CFB00F3B414 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Settings.strings; sourceTree = "<group>"; };
+		EA4D700C27BB2D7600F3B414 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Settings.strings"; sourceTree = "<group>"; };
+		EA4D700D27BB2EAD00F3B414 /* Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localized.swift; sourceTree = "<group>"; };
+		EA4D701227BB2EF400F3B414 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Default.strings; sourceTree = "<group>"; };
+		EA4D701427BB2EF500F3B414 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Default.strings"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -339,6 +349,10 @@
 			isa = PBXGroup;
 			children = (
 				EA0F5D8427B9CE3100858682 /* Assets.xcassets */,
+				EA4D700D27BB2EAD00F3B414 /* Localized.swift */,
+				EA4D700527BB2CDC00F3B414 /* Localized+Settings.swift */,
+				EA4D701327BB2EF400F3B414 /* Default.strings */,
+				EA4D700B27BB2CFB00F3B414 /* Settings.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -889,6 +903,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"pt-BR",
 			);
 			mainGroup = EA0F5D6F27B9CE2F00858682;
 			packageReferences = (
@@ -910,6 +925,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA4D701127BB2EF400F3B414 /* Default.strings in Resources */,
+				EA4D700927BB2CFB00F3B414 /* Settings.strings in Resources */,
 				EA0F5D8527B9CE3100858682 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -978,6 +995,7 @@
 				EA0F5E7A27BA2AB300858682 /* MovieDTO.swift in Sources */,
 				EA0F5E0927B9E3ED00858682 /* LoginViewModel.swift in Sources */,
 				EA0F5DE527B9DE0100858682 /* UserDB.swift in Sources */,
+				EA4D700E27BB2EAD00F3B414 /* Localized.swift in Sources */,
 				EA0F5E2227B9EA6600858682 /* UIViewController+Remove.swift in Sources */,
 				EA0F5E2E27B9EC8500858682 /* KeyboardHandler.swift in Sources */,
 				EA0F5E6B27BA23CB00858682 /* ListMoviesViewModel.swift in Sources */,
@@ -998,6 +1016,7 @@
 				EA0F5DD327B9DA0C00858682 /* LoadingView.swift in Sources */,
 				EA0F5E6F27BA23E900858682 /* ListMoviesView.swift in Sources */,
 				EA0F5E8127BA2CC500858682 /* DefaultMoviesRepository.swift in Sources */,
+				EA4D700627BB2CDC00F3B414 /* Localized+Settings.swift in Sources */,
 				EA0F5D7C27B9CE2F00858682 /* AppDelegate.swift in Sources */,
 				EA0F5E3727B9F24400858682 /* NetworkManager.swift in Sources */,
 				EA0F5E1C27B9E68500858682 /* DefaultLoginRepository.swift in Sources */,
@@ -1070,11 +1089,33 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		EA4D700B27BB2CFB00F3B414 /* Settings.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EA4D700A27BB2CFB00F3B414 /* en */,
+				EA4D700C27BB2D7600F3B414 /* pt-BR */,
+			);
+			name = Settings.strings;
+			sourceTree = "<group>";
+		};
+		EA4D701327BB2EF400F3B414 /* Default.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EA4D701227BB2EF400F3B414 /* en */,
+				EA4D701427BB2EF500F3B414 /* pt-BR */,
+			);
+			name = Default.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		EA0F5DA027B9CE3100858682 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -1136,6 +1177,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
