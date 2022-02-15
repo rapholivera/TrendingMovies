@@ -39,5 +39,11 @@ extension Localized {
         static var CreateAccount: String {
             return NSLocalizedString("createAccount", tableName: table, bundle: bundle, comment: "")
         }
+        static var Ok: String {
+            return NSLocalizedString("ok", tableName: table, bundle: bundle, comment: "")
+        }
+        static var TryAgain: String {
+            return NSLocalizedString("tryAgain", tableName: table, bundle: bundle, comment: "")
+        }
     }
 }

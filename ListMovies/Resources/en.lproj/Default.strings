@@ -12,5 +12,5 @@
 "password" = "Password";
 "signin" = "Sign In";
 "createAccount" = "Create Account";
-
-
+"ok" = "Ok";
+"tryAgain" = "Try Again";

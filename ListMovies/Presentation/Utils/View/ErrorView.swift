@@ -29,15 +29,15 @@ class ErrorView: UIView {
     }()
 
     private lazy var tryAgainButton: UIButton = {
-        return BaseButton(backgroundColor: .lightGray, title: "Tentar novamente")
+        return BaseButton(backgroundColor: .lightGray, title: Localized.Default.TryAgain)
     }()
 
     private lazy var cancelButton: UIButton = {
-        return BaseButton(backgroundColor: .lightGray, title: "Cancel")
+        return BaseButton(backgroundColor: .lightGray, title: Localized.Default.Cancel)
     }()
 
     private lazy var okButton: UIButton = {
-        return BaseButton(backgroundColor: .lightGray, title: "Ok")
+        return BaseButton(backgroundColor: .lightGray, title: Localized.Default.Ok)
     }()
 
     init() {
