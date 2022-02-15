@@ -22,5 +22,22 @@ extension Localized {
         static var Cancel: String {
             return NSLocalizedString("cancel", tableName: table, bundle: bundle, comment: "")
         }
+        /// Message showing witch type of document should be filled
+        static var TypeCPFMessage: String {
+            return NSLocalizedString("typeCPFMessage", tableName: table, bundle: bundle, comment: "")
+        }
+        /// Message showing witch field will receive user password
+        static var TypePasswordMessage: String {
+            return NSLocalizedString("typePasswordMessage", tableName: table, bundle: bundle, comment: "")
+        }
+        static var Password: String {
+            return NSLocalizedString("password", tableName: table, bundle: bundle, comment: "")
+        }
+        static var Signin: String {
+            return NSLocalizedString("signin", tableName: table, bundle: bundle, comment: "")
+        }
+        static var CreateAccount: String {
+            return NSLocalizedString("createAccount", tableName: table, bundle: bundle, comment: "")
+        }
     }
 }

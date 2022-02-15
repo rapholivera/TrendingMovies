@@ -29,7 +29,7 @@ class ListMoviesViewController: BaseViewController<ListMoviesView> {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Trending Movies"
+        title = Localized.Movies.Trending
         customView.moviesTableView.dataSource = self
         customView.moviesTableView.delegate = self
         customView.moviesTableView.register(cellClass: MovieTableViewCell.self)

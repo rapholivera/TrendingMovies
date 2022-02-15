@@ -7,3 +7,10 @@
 */
 
 "cancel" = "Cancel";
+"typeCPFMessage" = "Enter your CPF or CNPJ";
+"typePasswordMessage" = "Type your password";
+"password" = "Password";
+"signin" = "Sign In";
+"createAccount" = "Create Account";
+
+

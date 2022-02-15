@@ -1,0 +1,10 @@
+/* 
+  Movies.strings
+  ListMovies
+
+  Created by Raphael Oliveira on 2/14/22.
+  
+*/
+
+"trendingMovies" = "Em Alta";
+"loadingMovies" = "Carregando filmes...";

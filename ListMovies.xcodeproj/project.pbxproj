@@ -95,6 +95,8 @@
 		EA4D700927BB2CFB00F3B414 /* Settings.strings in Resources */ = {isa = PBXBuildFile; fileRef = EA4D700B27BB2CFB00F3B414 /* Settings.strings */; };
 		EA4D700E27BB2EAD00F3B414 /* Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4D700D27BB2EAD00F3B414 /* Localized.swift */; };
 		EA4D701127BB2EF400F3B414 /* Default.strings in Resources */ = {isa = PBXBuildFile; fileRef = EA4D701327BB2EF400F3B414 /* Default.strings */; };
+		EA4D701627BB32B600F3B414 /* Localized+Movies.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4D701527BB32B600F3B414 /* Localized+Movies.swift */; };
+		EA4D701927BB32D100F3B414 /* Movies.strings in Resources */ = {isa = PBXBuildFile; fileRef = EA4D701B27BB32D100F3B414 /* Movies.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -208,6 +210,9 @@
 		EA4D700D27BB2EAD00F3B414 /* Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localized.swift; sourceTree = "<group>"; };
 		EA4D701227BB2EF400F3B414 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Default.strings; sourceTree = "<group>"; };
 		EA4D701427BB2EF500F3B414 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Default.strings"; sourceTree = "<group>"; };
+		EA4D701527BB32B600F3B414 /* Localized+Movies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Localized+Movies.swift"; sourceTree = "<group>"; };
+		EA4D701A27BB32D100F3B414 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Movies.strings; sourceTree = "<group>"; };
+		EA4D701C27BB32D200F3B414 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Movies.strings"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -350,8 +355,10 @@
 			children = (
 				EA0F5D8427B9CE3100858682 /* Assets.xcassets */,
 				EA4D700D27BB2EAD00F3B414 /* Localized.swift */,
+				EA4D701527BB32B600F3B414 /* Localized+Movies.swift */,
 				EA4D700527BB2CDC00F3B414 /* Localized+Settings.swift */,
 				EA4D701327BB2EF400F3B414 /* Default.strings */,
+				EA4D701B27BB32D100F3B414 /* Movies.strings */,
 				EA4D700B27BB2CFB00F3B414 /* Settings.strings */,
 			);
 			path = Resources;
@@ -926,6 +933,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA4D701127BB2EF400F3B414 /* Default.strings in Resources */,
+				EA4D701927BB32D100F3B414 /* Movies.strings in Resources */,
 				EA4D700927BB2CFB00F3B414 /* Settings.strings in Resources */,
 				EA0F5D8527B9CE3100858682 /* Assets.xcassets in Resources */,
 			);
@@ -997,6 +1005,7 @@
 				EA0F5DE527B9DE0100858682 /* UserDB.swift in Sources */,
 				EA4D700E27BB2EAD00F3B414 /* Localized.swift in Sources */,
 				EA0F5E2227B9EA6600858682 /* UIViewController+Remove.swift in Sources */,
+				EA4D701627BB32B600F3B414 /* Localized+Movies.swift in Sources */,
 				EA0F5E2E27B9EC8500858682 /* KeyboardHandler.swift in Sources */,
 				EA0F5E6B27BA23CB00858682 /* ListMoviesViewModel.swift in Sources */,
 				EA0F5E1127B9E49500858682 /* LoginModel.swift in Sources */,
@@ -1106,6 +1115,15 @@
 				EA4D701427BB2EF500F3B414 /* pt-BR */,
 			);
 			name = Default.strings;
+			sourceTree = "<group>";
+		};
+		EA4D701B27BB32D100F3B414 /* Movies.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EA4D701A27BB32D100F3B414 /* en */,
+				EA4D701C27BB32D200F3B414 /* pt-BR */,
+			);
+			name = Movies.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

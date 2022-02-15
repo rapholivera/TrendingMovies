@@ -6,4 +6,9 @@
   
 */
 
-"cancel" = "Cancelaar";
+"cancel" = "Cancelar";
+"typeCPFMessage" = "Digite seu CPF ou CNPJ";
+"typePasswordMessage" = "Digite sua senha";
+"password" = "Senha";
+"signin" = "Entrar";
+"createAccount" = "Criar Conta";

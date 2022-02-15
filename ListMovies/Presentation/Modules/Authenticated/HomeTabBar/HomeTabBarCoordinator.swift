@@ -20,11 +20,11 @@ class HomeTabBarCoordinator: BaseCoordinator, CoordinatorProtocol, TabBarCoordin
 
         let statsController = ListMoviesFactory.build(coordinator: self)
         let stats = UIImage(systemName: "film")
-        statsController.tabBarItem = UITabBarItem(title: "Movies", image: stats, selectedImage: stats)
+        statsController.tabBarItem = UITabBarItem(title: Localized.Movies.Trending, image: stats, selectedImage: stats)
 
         let settingsController = SettingsFactory.build(coordinator: self)
         let gear = UIImage(systemName: "gear")
-        settingsController.tabBarItem = UITabBarItem(title: "Settings", image: gear, selectedImage: gear)
+        settingsController.tabBarItem = UITabBarItem(title: Localized.Settings.SettingsTitle, image: gear, selectedImage: gear)
 
         let vcs = [
             BaseNavigationController(rootViewController: statsController),

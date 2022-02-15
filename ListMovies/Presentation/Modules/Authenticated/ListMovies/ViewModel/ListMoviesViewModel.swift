@@ -42,7 +42,7 @@ extension DefaultListMoviesViewModel: ListMoviesViewModel {
     /// Fetch trending movies
     func loadMovies() {
 
-        newViewStateSubject.onLoading(text: "Loading movies...")
+        newViewStateSubject.onLoading(text: Localized.Movies.LoadingMovies)
 
         useCase.loadTrendingMovies { [weak self] response in
 

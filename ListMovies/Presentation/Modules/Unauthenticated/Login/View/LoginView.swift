@@ -13,7 +13,7 @@ class LoginView: BaseView {
 
     private let headerTitle: UILabel = {
         let header = BaseTitleLabel(textAlignment: .center)
-        header.text = "Trending Movies"
+        header.text = Localized.Movies.Trending
         header.font = UIFont(name: "HelveticaNeue-Bold", size: 21.0)
         return header
     }()
@@ -22,23 +22,23 @@ class LoginView: BaseView {
         let textField = BaseTextField()
         textField.applyAppearence(type: .number, placeholder: "CPF")
         textField.returnKeyType = .default
-        textField.keyboardPlaceholder = "Digite seu CPF ou CNPJ"
+        textField.keyboardPlaceholder = Localized.Default.TypeCPFMessage
         return textField
     }()
 
     internal let passwordTextField: BaseTextField = {
         let textField = BaseTextField()
-        textField.applyAppearence(type: .password, placeholder: "Password")
-        textField.keyboardPlaceholder = "Digite sua senha"
+        textField.applyAppearence(type: .password, placeholder: Localized.Default.Password)
+        textField.keyboardPlaceholder = Localized.Default.TypePasswordMessage
         return textField
     }()
 
     internal let authButton: BaseButton = {
-        return BaseButton(backgroundColor: .clear, title: "Sign In")
+        return BaseButton(backgroundColor: .clear, title: Localized.Default.Signin)
     }()
 
     internal let registerButton: UIButton = {
-        return BaseButton(backgroundColor: .backgroundSecundaryColor, title: "Create account")
+        return BaseButton(backgroundColor: .backgroundSecundaryColor, title: Localized.Default.CreateAccount)
     }()
 
     // MARK: - Lyfe Cicle
