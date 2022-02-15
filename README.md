@@ -16,7 +16,7 @@ TrendingMovies was written in Swift 5 using the TMDb API and demonstrating Clean
 You'll need a few things before getting started. Make sure you have the latests Xcode installed from the AppStore or Developer Site. Then you can clone the project with the following command:
 
 ```bash
-git clone https://github.com/rapholivera/lista-filmes.git
+git clone https://github.com/rapholivera/TrendingMovies.git
 ```
 
 It supports [SwiftLint](https://github.com/realm/SwiftLint), which is the defacto standard for linting Swift files. It is not directly installed as a dependency of the project, but running on mac, if you haven't installed it, the project will run normally. However, if there is any change in the code that doesn't follow the styles defined by swiftlint some of these warnings appear during development in Xcode:
