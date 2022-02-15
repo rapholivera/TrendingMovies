@@ -9,5 +9,5 @@ import XCTest
 @testable import ListMovies
 
 class ListMoviesTests: XCTestCase {
-    //TODO: Create tests for trending movies
+    // TODO: Create tests for trending movies
 }

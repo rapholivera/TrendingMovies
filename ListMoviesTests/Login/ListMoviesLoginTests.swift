@@ -38,10 +38,10 @@ class ListMoviesLoginTests: XCTestCase {
 
     /// `RN 2.` When user successfully login it goes to home screen
     func test_userAuthentication_Success() {
-        
-        //TODO: Create an mock object for session manager and test authentication
+
+        // TODO: Create an mock object for session manager and test authentication
         /// We should do the same with `RN 3.`
-        
+
         /*
         let sut: LoginViewController = createLoginValidSession()
 
