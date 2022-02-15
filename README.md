@@ -19,9 +19,15 @@ You'll need a few things before getting started. Make sure you have the latests 
 git clone https://github.com/rapholivera/lista-filmes.git
 ```
 
-It supports SwiftLint, which is the defacto standard for linting Swift files. It is not directly installed as a dependency of the project, but running on mac, if you haven't installed it, no problem, the project will run normally. However, if there is any change in the code that doesn't follow the styles defined by swiftlint some of these warnings appear during development in Xcode:
+It supports [SwiftLint](https://github.com/realm/SwiftLint), which is the defacto standard for linting Swift files. It is not directly installed as a dependency of the project, but running on mac, if you haven't installed it, the project will run normally. However, if there is any change in the code that doesn't follow the styles defined by swiftlint some of these warnings appear during development in Xcode:
 
 ![Header](README-FILES/xcode-swiftlint-warnings.png)
+
+### Instalation using [Homebrew](http://brew.sh/)
+
+```bash
+brew install swiftlint
+```
 
 ## Dependency injection 💉
 
