@@ -14,3 +14,4 @@
 "createAccount" = "Criar Conta";
 "ok" = "Ok";
 "tryAgain" = "Tentar novamente";
+"badLoginCredentials" = "A combinação documento / senha não é válida.";

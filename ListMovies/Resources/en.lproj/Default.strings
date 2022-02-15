@@ -14,3 +14,4 @@
 "createAccount" = "Create Account";
 "ok" = "Ok";
 "tryAgain" = "Try Again";
+"badLoginCredentials" = "The document / password combination is not valid";

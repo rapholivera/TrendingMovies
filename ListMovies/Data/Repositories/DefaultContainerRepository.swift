@@ -27,8 +27,8 @@ class DefaultContainerRepository: NSObject {
             var state: ApplicationState = .expired
 
             switch sessionState {
-            case .hasSession(let session):
-                state = self.getStateBy(session: session)
+            case .hasSession:
+                state = .logged(hasProfile: true)
 
             case .notHaveSession:
                 state = .notLogged
@@ -40,10 +40,6 @@ class DefaultContainerRepository: NSObject {
             self.state.send(state)
 
         }).store(in: &subscriptions)
-    }
-
-    private func getStateBy(session: UserSessionDB) -> ApplicationState {
-        return .logged(hasProfile: !session.accessToken.isEmpty)
     }
 }
 

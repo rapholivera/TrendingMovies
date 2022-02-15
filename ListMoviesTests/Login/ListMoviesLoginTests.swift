@@ -1,0 +1,154 @@
+//
+//  ListMoviesLoginTests.swift
+//  ListMoviesTests
+//
+//  Created by Raphael Oliveira on 2/14/22.
+//
+
+import XCTest
+import Combine
+
+@testable import ListMovies
+
+class ListMoviesLoginTests: XCTestCase {
+
+    /// `RN 1.` Signing button should be enabled only if booth `Document` and `Password` fields are filled
+    func test_validInput() {
+
+        // given
+        let loginViewModel = createMockLoginViewModel()
+
+        let spy = ValueSpy(loginViewModel.isInputValid)
+
+        // then
+        XCTAssertEqual(spy.values, [false])
+
+        // when
+        loginViewModel.credentials.document = "email@google.com"
+
+        // then
+        XCTAssertEqual(spy.values, [false, false])
+
+        // when
+        loginViewModel.credentials.password = "password123"
+
+        // then
+        XCTAssertEqual(spy.values, [false, false, true])
+    }
+
+    /// `RN 2.` When user successfully login it goes to home screen
+    func test_userAuthentication_Success() {
+        
+        //TODO: Create an mock object for session manager and test authentication
+        /// We should do the same with `RN 3.`
+        
+        /*
+        let sut: LoginViewController = createLoginValidSession()
+
+        let spy = ValueSessionSpy(SessionManager.shared.sessionState.eraseToAnyPublisher())
+
+        // then
+        XCTAssertEqual(spy.values, [.notHaveSession])
+
+        // when
+        sut.customView.authButton.sendActions(for: .touchUpInside)
+
+        // then
+        XCTAssertEqual(spy.values, [.notHaveSession, .hasSession])
+        */
+
+    }
+
+    /// `RN 3.` When user type wrong credential an alert shoud pop in
+    func test_userAuthentication_Error() {
+
+    }
+
+}
+
+private func createLoginValidSession() -> LoginViewController {
+    let user: UserDTO = createValidMockUserResponse()
+    let repository: LoginRepository = LoginRepositorySpy(result: user)
+    return createMockLoginController(repository: repository)
+}
+
+private func createLoginInvalidSession() -> LoginViewController {
+    let error: APIError = .badCredentials
+    let repository: LoginRepository = LoginRepositorySpy(result: error)
+    return createMockLoginController(repository: repository)
+}
+
+private func createMockLoginController(repository: LoginRepository) -> LoginViewController {
+    let coordinator = LoginCoordinatorDummy()
+    let viewModel = DefaultLoginViewModel(coordinator: coordinator, repository: repository)
+
+    viewModel.credentials.document = "email@google.com"
+
+    // then
+    // XCTAssertEqual(spy.values, [false, false])
+
+    // when
+    viewModel.credentials.password = "password123"
+    return LoginViewController(viewModel: viewModel)
+}
+
+private func createValidMockUserResponse() -> UserDTO {
+    let randomAccessToken: String = UUID().uuidString
+    return UserDTO(name: "User", code: randomAccessToken, mail: "movies@movies.com")
+}
+
+/// Create a mock login view model to use in tests
+private func createMockLoginViewModel() -> LoginViewModel {
+
+    let coordinator: LoginCoordinatorProtocol = LoginCoordinatorDummy()
+
+    let repository: LoginRepository = LoginRepositorySpy(result: createValidMockUserResponse())
+
+    return DefaultLoginViewModel(coordinator: coordinator, repository: repository)
+}
+
+private class LoginCoordinatorDummy: LoginCoordinatorProtocol {
+    func showCreateAccount() {
+        // TODO: test navigation
+    }
+}
+
+// MARK: - Login Repository Layer
+private class LoginRepositorySpy: LoginRepository {
+
+    private let result: Result<UserDTO, APIError>
+
+    init(result: UserDTO) {
+        self.result = .success(result)
+    }
+    init(result: APIError) {
+        self.result = .failure(result)
+    }
+
+    func auth(credentials: LoginModel, completion: @escaping (Result<UserDTO, APIError>) -> Void) {
+        // TODO: test response
+        completion(result)
+    }
+}
+
+private class ValueSpy {
+    private(set) var values = [Bool]()
+    private var cancellable: AnyCancellable?
+
+    init(_ publisher: AnyPublisher<Bool, Never>) {
+        cancellable = publisher.sink(receiveValue: { [weak self] value in
+            self?.values.append(value)
+        })
+    }
+}
+
+private class ValueSessionSpy {
+    private(set) var values = [UserSessionState]()
+    private var cancellable: AnyCancellable?
+
+    init(_ publisher: AnyPublisher<UserSessionState, Error>) {
+        cancellable = publisher.sink(receiveCompletion: { _ in }, receiveValue: { [weak self] value in
+            self?.values.append(value)
+        })
+    }
+}

@@ -45,5 +45,9 @@ extension Localized {
         static var TryAgain: String {
             return NSLocalizedString("tryAgain", tableName: table, bundle: bundle, comment: "")
         }
+        /// Login error message
+        static var BadLoginCredentials: String {
+            return NSLocalizedString("badLoginCredentials", tableName: table, bundle: bundle, comment: "")
+        }
     }
 }

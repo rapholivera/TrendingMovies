@@ -8,8 +8,8 @@
 import UIKit
 import Combine
 
-enum UserSessionState {
-    case hasSession(session: UserSessionDB)
+enum UserSessionState: Equatable {
+    case hasSession
     case notHaveSession
     case sessionExpired
 }
@@ -37,15 +37,15 @@ class SessionManager {
 
     private var cachedSession: UserSessionDB? {
         didSet {
-            if let cachedSession = cachedSession {
-                stateSubject.send(.hasSession(session: cachedSession))
+            if let _ = cachedSession {
+                stateSubject.send(.hasSession)
             }
         }
     }
 
     private lazy var stateSubject: CurrentValueSubject<UserSessionState, Error> = {
-        if let sessionDB = self.retrieveUserSession() {
-            return CurrentValueSubject<UserSessionState, Error>(.hasSession(session: sessionDB))
+        if let _ = self.retrieveUserSession() {
+            return CurrentValueSubject<UserSessionState, Error>(.hasSession)
         } else {
             return CurrentValueSubject<UserSessionState, Error>(.notHaveSession)
         }
