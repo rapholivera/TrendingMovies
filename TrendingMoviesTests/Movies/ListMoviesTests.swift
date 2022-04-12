@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import ListMovies
+@testable import TrendingMovies
 
 class ListMoviesTests: XCTestCase {
     // TODO: Create tests for trending movies
