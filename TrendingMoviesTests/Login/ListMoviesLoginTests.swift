@@ -8,7 +8,7 @@
 import XCTest
 import Combine
 
-@testable import ListMovies
+@testable import TrendingMovies
 
 class ListMoviesLoginTests: XCTestCase {
 
@@ -36,16 +36,15 @@ class ListMoviesLoginTests: XCTestCase {
         XCTAssertEqual(spy.values, [false, false, true])
     }
 
-    /// `RN 2.` When user successfully login it goes to home screen
+    /// `RN 2.` When user successfully login change session state to `hasSession`
     func test_userAuthentication_Success() {
 
-        // TODO: Create an mock object for session manager and test authentication
         /// We should do the same with `RN 3.`
+        let mockSession = MockSessionManager(state: .notHaveSession)
+        
+        let sut: LoginViewController = createLoginMockSession(session: mockSession)
 
-        /*
-        let sut: LoginViewController = createLoginValidSession()
-
-        let spy = ValueSessionSpy(SessionManager.shared.sessionState.eraseToAnyPublisher())
+        let spy = ValueSessionSpy(mockSession.sessionState.eraseToAnyPublisher())
 
         // then
         XCTAssertEqual(spy.values, [.notHaveSession])
@@ -55,21 +54,22 @@ class ListMoviesLoginTests: XCTestCase {
 
         // then
         XCTAssertEqual(spy.values, [.notHaveSession, .hasSession])
-        */
 
     }
 
     /// `RN 3.` When user type wrong credential an alert shoud pop in
     func test_userAuthentication_Error() {
-
+        
     }
 
 }
 
-private func createLoginValidSession() -> LoginViewController {
+private func createLoginMockSession(session: SessionManagerProtocol) -> LoginViewController {
     let user: UserDTO = createValidMockUserResponse()
     let repository: LoginRepository = LoginRepositorySpy(result: user)
-    return createMockLoginController(repository: repository)
+    let coordinator = LoginCoordinatorDummy()
+    let viewModel = MockLoginViewModel(coordinator: coordinator, repository: repository, session: session)
+    return LoginViewController(viewModel: viewModel)
 }
 
 private func createLoginInvalidSession() -> LoginViewController {
