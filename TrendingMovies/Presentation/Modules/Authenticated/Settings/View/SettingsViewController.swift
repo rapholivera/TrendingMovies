@@ -15,8 +15,8 @@ class SettingsViewController: BaseViewController<SettingsView> {
 
     // MARK: - Properties
 
-    private var viewModel: SettingsViewModel {
-        return baseViewModel as! SettingsViewModel
+    private var viewModel: SettingsViewModel! {
+        return baseViewModel as? SettingsViewModel
     }
 
     // MARK: - Life Cycle

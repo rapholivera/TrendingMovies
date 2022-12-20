@@ -5,9 +5,9 @@
 //  Created by Raphael Oliveira on 2/13/22.
 //
 
-import UIKit
+import SwiftUI
 
-class BaseView: UIView {
+ class BaseView: UIView {
 
     /*
     // Only override draw() if you perform custom drawing.
@@ -17,4 +17,4 @@ class BaseView: UIView {
     }
     */
 
-}
+ }

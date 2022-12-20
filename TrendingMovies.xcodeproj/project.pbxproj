@@ -43,7 +43,7 @@
 		EA0F5E0127B9E25000858682 /* UIColor+CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0F5E0027B9E25000858682 /* UIColor+CustomColors.swift */; };
 		EA0F5E0427B9E35B00858682 /* ContainerRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0F5E0327B9E35B00858682 /* ContainerRepository.swift */; };
 		EA0F5E0627B9E38800858682 /* DefaultContainerRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0F5E0527B9E38800858682 /* DefaultContainerRepository.swift */; };
-		EA0F5E0927B9E3ED00858682 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0F5E0827B9E3ED00858682 /* LoginViewModel.swift */; };
+		EA0F5E0927B9E3ED00858682 /* LoginViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0F5E0827B9E3ED00858682 /* LoginViewModelProtocol.swift */; };
 		EA0F5E0C27B9E40400858682 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0F5E0B27B9E40400858682 /* LoginViewController.swift */; };
 		EA0F5E0E27B9E46000858682 /* LoginRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0F5E0D27B9E46000858682 /* LoginRepository.swift */; };
 		EA0F5E1127B9E49500858682 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0F5E1027B9E49500858682 /* LoginModel.swift */; };
@@ -111,14 +111,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6446FB982951343200C04C48 /* TrendingMovies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrendingMovies.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6446FB992951343200C04C48 /* TrendingMoviesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrendingMoviesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		64E98FF8280630A400A3CBE1 /* MockSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSessionManager.swift; sourceTree = "<group>"; };
 		64E98FFA2806329F00A3CBE1 /* MockLoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLoginViewModel.swift; sourceTree = "<group>"; };
-		EA0F5D7827B9CE2F00858682 /* TrendingMovies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrendingMovies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA0F5D7B27B9CE2F00858682 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EA0F5D7D27B9CE2F00858682 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		EA0F5D8427B9CE3100858682 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EA0F5D8927B9CE3100858682 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EA0F5D8E27B9CE3100858682 /* TrendingMoviesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrendingMoviesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA0F5D9227B9CE3100858682 /* ListMoviesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMoviesTests.swift; sourceTree = "<group>"; };
 		EA0F5DB327B9D42700858682 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		EA0F5DB627B9D45B00858682 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
@@ -150,7 +150,7 @@
 		EA0F5E0027B9E25000858682 /* UIColor+CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+CustomColors.swift"; sourceTree = "<group>"; };
 		EA0F5E0327B9E35B00858682 /* ContainerRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerRepository.swift; sourceTree = "<group>"; };
 		EA0F5E0527B9E38800858682 /* DefaultContainerRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultContainerRepository.swift; sourceTree = "<group>"; };
-		EA0F5E0827B9E3ED00858682 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		EA0F5E0827B9E3ED00858682 /* LoginViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelProtocol.swift; sourceTree = "<group>"; };
 		EA0F5E0B27B9E40400858682 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		EA0F5E0D27B9E46000858682 /* LoginRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRepository.swift; sourceTree = "<group>"; };
 		EA0F5E1027B9E49500858682 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
@@ -242,17 +242,9 @@
 			children = (
 				EA0F5D7A27B9CE2F00858682 /* TrendingMovies */,
 				EA0F5D9127B9CE3100858682 /* TrendingMoviesTests */,
-				EA0F5D7927B9CE2F00858682 /* Products */,
+				6446FB982951343200C04C48 /* TrendingMovies.app */,
+				6446FB992951343200C04C48 /* TrendingMoviesTests.xctest */,
 			);
-			sourceTree = "<group>";
-		};
-		EA0F5D7927B9CE2F00858682 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				EA0F5D7827B9CE2F00858682 /* TrendingMovies.app */,
-				EA0F5D8E27B9CE3100858682 /* TrendingMoviesTests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		EA0F5D7A27B9CE2F00858682 /* TrendingMovies */ = {
@@ -532,7 +524,7 @@
 		EA0F5E0727B9E3DD00858682 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				EA0F5E0827B9E3ED00858682 /* LoginViewModel.swift */,
+				EA0F5E0827B9E3ED00858682 /* LoginViewModelProtocol.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -844,7 +836,7 @@
 				EA0F5E2A27B9EC5E00858682 /* IQKeyboardManagerSwift */,
 			);
 			productName = ListMovies;
-			productReference = EA0F5D7827B9CE2F00858682 /* TrendingMovies.app */;
+			productReference = 6446FB982951343200C04C48 /* TrendingMovies.app */;
 			productType = "com.apple.product-type.application";
 		};
 		EA0F5D8D27B9CE3100858682 /* TrendingMoviesTests */ = {
@@ -862,7 +854,7 @@
 			);
 			name = TrendingMoviesTests;
 			productName = ListMoviesTests;
-			productReference = EA0F5D8E27B9CE3100858682 /* TrendingMoviesTests.xctest */;
+			productReference = 6446FB992951343200C04C48 /* TrendingMoviesTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -897,7 +889,7 @@
 			packageReferences = (
 				EA0F5E2927B9EC5E00858682 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 			);
-			productRefGroup = EA0F5D7927B9CE2F00858682 /* Products */;
+			productRefGroup = EA0F5D6F27B9CE2F00858682;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -945,7 +937,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\n\nif which swiftlint >/dev/null; then\n  swiftlint autocorrect\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\n\nif which swiftlint >/dev/null; then\n      swiftlint --fix && swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -974,7 +966,7 @@
 				EA0F5E4827B9F3B800858682 /* JSONParameterEncoder.swift in Sources */,
 				EA0F5E0E27B9E46000858682 /* LoginRepository.swift in Sources */,
 				EA0F5E7A27BA2AB300858682 /* MovieDTO.swift in Sources */,
-				EA0F5E0927B9E3ED00858682 /* LoginViewModel.swift in Sources */,
+				EA0F5E0927B9E3ED00858682 /* LoginViewModelProtocol.swift in Sources */,
 				EA0F5DE527B9DE0100858682 /* UserDB.swift in Sources */,
 				EA4D700E27BB2EAD00F3B414 /* Localized.swift in Sources */,
 				EA0F5E2227B9EA6600858682 /* UIViewController+Remove.swift in Sources */,

@@ -12,7 +12,14 @@ protocol LoginCoordinatorProtocol {
     func showCreateAccount()
 }
 
-class DefaultLoginViewModel: BaseViewModel {
+protocol LoginViewModelProtocol: BaseViewModelProtocol {
+    var credentials: LoginModel { get }
+    var isInputValid: AnyPublisher<Bool, Never> { get }
+    func doLogin()
+    func doRegister()
+}
+
+class LoginViewModel: BaseViewModel {
     private let coordinator: LoginCoordinatorProtocol
     private let repository: LoginRepository
     private let credentialsModel: LoginModel = LoginModel()
@@ -25,7 +32,7 @@ class DefaultLoginViewModel: BaseViewModel {
     }
 }
 
-extension DefaultLoginViewModel: LoginViewModel {
+extension LoginViewModel: LoginViewModelProtocol {
     var credentials: LoginModel {
         return credentialsModel
     }

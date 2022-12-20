@@ -8,19 +8,24 @@
 import UIKit
 import Combine
 
-protocol LoginViewModel: BaseViewModelProtocol {
-    var credentials: LoginModel { get }
-    var isInputValid: AnyPublisher<Bool, Never> { get }
-    func doLogin()
-    func doRegister()
-}
-
-class LoginViewController: BaseViewController<LoginView> {
+class LoginViewController: UIViewController {
 
     // MARK: - Properties
+    private let customView = LoginView()
+    private let viewModel: LoginViewModelProtocol
+    private var subscriptions = Set<AnyCancellable>()
 
-    private var viewModel: LoginViewModel {
-        return baseViewModel as! LoginViewModel
+    init(viewModel: LoginViewModelProtocol) {
+        self.viewModel = viewModel
+        super.init()
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    override func loadView() {
+        view = customView
     }
 
     // MARK: - Life Cycle
@@ -28,25 +33,25 @@ class LoginViewController: BaseViewController<LoginView> {
     override func viewDidLoad() {
         super.viewDidLoad()
         customView.authButton.addTarget(self, action: #selector(clickSignin), for: .touchUpInside)
+        bind()
     }
 
-    override func bind() {
-        super.bind()
+    private func bind() {
 
         customView.documentTextField.textPublisher
-        .receive(on: DispatchQueue.main)
-        .assign(to: \.credentials.document, on: viewModel)
-        .store(in: &subscriptions)
+            .receive(on: DispatchQueue.main)
+            .assign(to: \.credentials.document, on: viewModel)
+            .store(in: &subscriptions)
 
         customView.passwordTextField.textPublisher
-        .receive(on: DispatchQueue.main)
-        .assign(to: \.credentials.password, on: viewModel)
-        .store(in: &subscriptions)
+            .receive(on: DispatchQueue.main)
+            .assign(to: \.credentials.password, on: viewModel)
+            .store(in: &subscriptions)
 
         viewModel.isInputValid
-        .receive(on: RunLoop.main)
-        .assign(to: \.isEnabled, on: customView.authButton)
-        .store(in: &subscriptions)
+            .receive(on: RunLoop.main)
+            .assign(to: \.isEnabled, on: customView.authButton)
+            .store(in: &subscriptions)
     }
 
     // MARK: - Actions

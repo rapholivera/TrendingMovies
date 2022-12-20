@@ -11,7 +11,7 @@ class LoginFactory {
     // MARK: - Life Cycle
     class func build(coordinator: LoginCoordinatorProtocol) -> LoginViewController {
         let repository = DefaultLoginRepository()
-        let viewModel = DefaultLoginViewModel(coordinator: coordinator, repository: repository)
+        let viewModel = LoginViewModel(coordinator: coordinator, repository: repository)
         return LoginViewController(viewModel: viewModel)
     }
 }

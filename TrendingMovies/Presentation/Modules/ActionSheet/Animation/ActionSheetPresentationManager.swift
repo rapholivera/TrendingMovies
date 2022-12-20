@@ -9,7 +9,9 @@ import UIKit
 
 final class ActionSheetPresentationManager: NSObject, UIViewControllerTransitioningDelegate {
 
-    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    func animationController(forPresented presented: UIViewController,
+                             presenting: UIViewController,
+                             source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return ActionSheetPresentTransitioning()
     }
 

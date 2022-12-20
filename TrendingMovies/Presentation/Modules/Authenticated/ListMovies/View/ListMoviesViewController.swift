@@ -23,8 +23,8 @@ class ListMoviesViewController: BaseViewController<ListMoviesView> {
 
     // MARK: - Properties
 
-    private var viewModel: ListMoviesViewModel {
-        return baseViewModel as! ListMoviesViewModel
+    private var viewModel: ListMoviesViewModel! {
+        return baseViewModel as? ListMoviesViewModel
     }
 
     override func viewDidLoad() {

@@ -27,7 +27,12 @@ final class ActionSheetPresentTransitioning: NSObject, UIViewControllerAnimatedT
 
         let duration = transitionDuration(using: transitionContext)
 
-        UIView.animate(withDuration: duration, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 1.0, options: [], animations: {
+        UIView.animate(withDuration: duration,
+                       delay: 0,
+                       usingSpringWithDamping: 0.8,
+                       initialSpringVelocity: 1.0,
+                       options: [],
+                       animations: {
             topView.alpha = 1
             footerView.transform = .identity
 

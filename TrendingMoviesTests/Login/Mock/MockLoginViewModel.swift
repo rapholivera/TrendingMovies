@@ -26,7 +26,7 @@ class MockLoginViewModel: BaseViewModel {
 
 }
 
-extension MockLoginViewModel: LoginViewModel {
+extension MockLoginViewModel: LoginViewModelProtocol {
     var credentials: LoginModel {
         return credentialsModel
     }

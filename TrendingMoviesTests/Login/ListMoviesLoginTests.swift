@@ -41,8 +41,8 @@ class ListMoviesLoginTests: XCTestCase {
 
         /// We should do the same with `RN 3.`
         let mockSession = MockSessionManager(state: .notHaveSession)
-        
-        let sut: LoginViewController = createLoginMockSession(session: mockSession)
+
+        let sut: LoginViewController = createInvalidLoginMockSession(session: mockSession)
 
         let spy = ValueSessionSpy(mockSession.sessionState.eraseToAnyPublisher())
 
@@ -59,13 +59,36 @@ class ListMoviesLoginTests: XCTestCase {
 
     /// `RN 3.` When user type wrong credential an alert shoud pop in
     func test_userAuthentication_Error() {
-        
+
+        /// We should do the same with `RN 3.`
+        let mockSession = MockSessionManager(state: .notHaveSession)
+
+        let sut: LoginViewController = createInvalidLoginMockSession(session: mockSession)
+
+        let spy = ValueSessionSpy(mockSession.sessionState.eraseToAnyPublisher())
+
+        // then
+        XCTAssertEqual(spy.values, [.notHaveSession])
+
+        // when
+        sut.customView.authButton.sendActions(for: .touchUpInside)
+
+        // then
+        XCTAssertEqual(spy.values, [.notHaveSession, .hasSession])
     }
 
 }
 
 private func createLoginMockSession(session: SessionManagerProtocol) -> LoginViewController {
     let user: UserDTO = createValidMockUserResponse()
+    let repository: LoginRepository = LoginRepositorySpy(result: user)
+    let coordinator = LoginCoordinatorDummy()
+    let viewModel = MockLoginViewModel(coordinator: coordinator, repository: repository, session: session)
+    return LoginViewController(viewModel: viewModel)
+}
+
+private func createInvalidLoginMockSession(session: SessionManagerProtocol) -> LoginViewController {
+    let user: UserDTO = createInvalidMockUserResponse()
     let repository: LoginRepository = LoginRepositorySpy(result: user)
     let coordinator = LoginCoordinatorDummy()
     let viewModel = MockLoginViewModel(coordinator: coordinator, repository: repository, session: session)
@@ -80,7 +103,7 @@ private func createLoginInvalidSession() -> LoginViewController {
 
 private func createMockLoginController(repository: LoginRepository) -> LoginViewController {
     let coordinator = LoginCoordinatorDummy()
-    let viewModel = DefaultLoginViewModel(coordinator: coordinator, repository: repository)
+    let viewModel = LoginViewModel(coordinator: coordinator, repository: repository)
 
     viewModel.credentials.document = "email@google.com"
 
@@ -97,14 +120,18 @@ private func createValidMockUserResponse() -> UserDTO {
     return UserDTO(name: "User", code: randomAccessToken, mail: "movies@movies.com")
 }
 
+private func createInvalidMockUserResponse() -> UserDTO {
+    return UserDTO(name: "User", code: "", mail: "movies@movies.com")
+}
+
 /// Create a mock login view model to use in tests
-private func createMockLoginViewModel() -> LoginViewModel {
+private func createMockLoginViewModel() -> LoginViewModelProtocol {
 
     let coordinator: LoginCoordinatorProtocol = LoginCoordinatorDummy()
 
     let repository: LoginRepository = LoginRepositorySpy(result: createValidMockUserResponse())
 
-    return DefaultLoginViewModel(coordinator: coordinator, repository: repository)
+    return LoginViewModel(coordinator: coordinator, repository: repository)
 }
 
 private class LoginCoordinatorDummy: LoginCoordinatorProtocol {
