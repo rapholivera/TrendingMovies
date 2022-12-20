@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		64E98FF9280630A400A3CBE1 /* MockSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E98FF8280630A400A3CBE1 /* MockSessionManager.swift */; };
-		64E98FFB2806329F00A3CBE1 /* MockLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E98FFA2806329F00A3CBE1 /* MockLoginViewModel.swift */; };
 		EA0F5D7C27B9CE2F00858682 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0F5D7B27B9CE2F00858682 /* AppDelegate.swift */; };
 		EA0F5D7E27B9CE2F00858682 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0F5D7D27B9CE2F00858682 /* SceneDelegate.swift */; };
 		EA0F5D8527B9CE3100858682 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA0F5D8427B9CE3100858682 /* Assets.xcassets */; };
@@ -114,7 +113,6 @@
 		6446FB982951343200C04C48 /* TrendingMovies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrendingMovies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6446FB992951343200C04C48 /* TrendingMoviesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrendingMoviesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		64E98FF8280630A400A3CBE1 /* MockSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSessionManager.swift; sourceTree = "<group>"; };
-		64E98FFA2806329F00A3CBE1 /* MockLoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLoginViewModel.swift; sourceTree = "<group>"; };
 		EA0F5D7B27B9CE2F00858682 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EA0F5D7D27B9CE2F00858682 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		EA0F5D8427B9CE3100858682 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -232,7 +230,6 @@
 			isa = PBXGroup;
 			children = (
 				64E98FF8280630A400A3CBE1 /* MockSessionManager.swift */,
-				64E98FFA2806329F00A3CBE1 /* MockLoginViewModel.swift */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -1037,7 +1034,6 @@
 			files = (
 				EA4D701E27BB3ABB00F3B414 /* ListMoviesLoginTests.swift in Sources */,
 				64E98FF9280630A400A3CBE1 /* MockSessionManager.swift in Sources */,
-				64E98FFB2806329F00A3CBE1 /* MockLoginViewModel.swift in Sources */,
 				EA0F5D9327B9CE3100858682 /* ListMoviesTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

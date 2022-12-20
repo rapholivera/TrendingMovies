@@ -24,13 +24,13 @@ class ListMoviesLoginTests: XCTestCase {
         XCTAssertEqual(spy.values, [false])
 
         // when
-        loginViewModel.credentials.document = "email@google.com"
+        //loginViewModel.credentials.document = "email@google.com"
 
         // then
         XCTAssertEqual(spy.values, [false, false])
 
         // when
-        loginViewModel.credentials.password = "password123"
+        //loginViewModel.credentials.password = "password123"
 
         // then
         XCTAssertEqual(spy.values, [false, false, true])
@@ -83,7 +83,7 @@ private func createLoginMockSession(session: SessionManagerProtocol) -> LoginVie
     let user: UserDTO = createValidMockUserResponse()
     let repository: LoginRepository = LoginRepositorySpy(result: user)
     let coordinator = LoginCoordinatorDummy()
-    let viewModel = MockLoginViewModel(coordinator: coordinator, repository: repository, session: session)
+    let viewModel = LoginViewModel(coordinator: coordinator, repository: repository/*, session: session*/)
     return LoginViewController(viewModel: viewModel)
 }
 
@@ -91,7 +91,7 @@ private func createInvalidLoginMockSession(session: SessionManagerProtocol) -> L
     let user: UserDTO = createInvalidMockUserResponse()
     let repository: LoginRepository = LoginRepositorySpy(result: user)
     let coordinator = LoginCoordinatorDummy()
-    let viewModel = MockLoginViewModel(coordinator: coordinator, repository: repository, session: session)
+    let viewModel = LoginViewModel(coordinator: coordinator, repository: repository/*, session: session*/)
     return LoginViewController(viewModel: viewModel)
 }
 
@@ -105,13 +105,14 @@ private func createMockLoginController(repository: LoginRepository) -> LoginView
     let coordinator = LoginCoordinatorDummy()
     let viewModel = LoginViewModel(coordinator: coordinator, repository: repository)
 
-    viewModel.credentials.document = "email@google.com"
+    var credentials = LoginViewModel.LoginCredentials(document:"", password:"")
+    //viewModel.credentials.document = "email@google.com"
 
     // then
     // XCTAssertEqual(spy.values, [false, false])
 
     // when
-    viewModel.credentials.password = "password123"
+    //viewModel.credentials.password = "password123"
     return LoginViewController(viewModel: viewModel)
 }
 

@@ -11,13 +11,13 @@ import Combine
 class LoginViewController: UIViewController {
 
     // MARK: - Properties
-    private let customView = LoginView()
+    let customView = LoginView()
     private let viewModel: LoginViewModelProtocol
     private var subscriptions = Set<AnyCancellable>()
 
     init(viewModel: LoginViewModelProtocol) {
         self.viewModel = viewModel
-        super.init()
+        super.init(nibName: nil, bundle: nil)
     }
 
     required init?(coder: NSCoder) {
@@ -37,15 +37,11 @@ class LoginViewController: UIViewController {
     }
 
     private func bind() {
-
-        customView.documentTextField.textPublisher
-            .receive(on: DispatchQueue.main)
-            .assign(to: \.credentials.document, on: viewModel)
-            .store(in: &subscriptions)
-
-        customView.passwordTextField.textPublisher
-            .receive(on: DispatchQueue.main)
-            .assign(to: \.credentials.password, on: viewModel)
+        Publishers
+            .CombineLatest(customView.documentTextField.textPublisher, customView.passwordTextField.textPublisher)
+            .receive(on: RunLoop.main)
+            .map({ (document: $0, password: $1)  })
+            .sink(receiveValue: { [weak self] in self?.viewModel.updateCredentials(credentials: $0) })
             .store(in: &subscriptions)
 
         viewModel.isInputValid

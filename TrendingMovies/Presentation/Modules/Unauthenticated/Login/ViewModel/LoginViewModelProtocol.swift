@@ -13,8 +13,11 @@ protocol LoginCoordinatorProtocol {
 }
 
 protocol LoginViewModelProtocol: BaseViewModelProtocol {
-    var credentials: LoginModel { get }
+    typealias LoginCredentials = (document: String, password: String)
+
     var isInputValid: AnyPublisher<Bool, Never> { get }
+
+    func updateCredentials(credentials: LoginCredentials)
     func doLogin()
     func doRegister()
 }
@@ -33,18 +36,23 @@ class LoginViewModel: BaseViewModel {
 }
 
 extension LoginViewModel: LoginViewModelProtocol {
-    var credentials: LoginModel {
-        return credentialsModel
+    func updateCredentials(credentials: LoginCredentials) {
+        credentialsModel.document = credentials.document
+        credentialsModel.password = credentials.password
     }
 
+//    var credentials: LoginModel {
+//        return credentialsModel
+//    }
+
     var isInputValid: AnyPublisher<Bool, Never> {
-        return Publishers.CombineLatest(credentials.$document, credentials.$password)
+        return Publishers.CombineLatest(credentialsModel.$document, credentialsModel.$password)
             .map { $0.count > 0 && $1.count > 0 }
             .eraseToAnyPublisher()
     }
 
     func doLogin() {
-        repository.auth(credentials: credentials) { [weak self] (response) in
+        repository.auth(credentials: credentialsModel) { [weak self] (response) in
             guard let self = self else { return }
             switch response {
             case .success(let userAPI):
