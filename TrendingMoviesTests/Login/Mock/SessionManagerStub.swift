@@ -10,7 +10,7 @@ import Combine
 
 @testable import TrendingMovies
 
-final class MockSessionManager {
+final class SessionManagerStub {
 
     private let mockStateSubject: CurrentValueSubject<UserSessionState, Error>
     private var cachedSession: UserSessionDB? {
@@ -26,7 +26,7 @@ final class MockSessionManager {
     }
 }
 
-extension MockSessionManager: SessionManagerProtocol {
+extension SessionManagerStub: SessionManagerProtocol {
     var sessionState: CurrentValueSubject<UserSessionState, Error> {
         return mockStateSubject
     }

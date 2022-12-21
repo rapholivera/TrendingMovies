@@ -17,7 +17,8 @@ protocol LoginViewModelProtocol: BaseViewModelProtocol {
 
     var isInputValid: AnyPublisher<Bool, Never> { get }
 
-    func updateCredentials(credentials: LoginCredentials)
+    func didUpdateDocumentTextField(document: String)
+    func didUpdatePasswordTextField(password: String)
     func doLogin()
     func doRegister()
 }
@@ -25,25 +26,27 @@ protocol LoginViewModelProtocol: BaseViewModelProtocol {
 class LoginViewModel: BaseViewModel {
     private let coordinator: LoginCoordinatorProtocol
     private let repository: LoginRepository
+    private let session: SessionManagerProtocol
     private let credentialsModel: LoginModel = LoginModel()
 
     // MARK: - Init Methods
-    init(coordinator: LoginCoordinatorProtocol, repository: LoginRepository) {
+    init(coordinator: LoginCoordinatorProtocol, repository: LoginRepository,
+         session: SessionManagerProtocol) {
         self.repository = repository
         self.coordinator = coordinator
+        self.session = session
         super.init()
     }
 }
 
 extension LoginViewModel: LoginViewModelProtocol {
-    func updateCredentials(credentials: LoginCredentials) {
-        credentialsModel.document = credentials.document
-        credentialsModel.password = credentials.password
+    func didUpdateDocumentTextField(document: String) {
+        credentialsModel.document = document
     }
 
-//    var credentials: LoginModel {
-//        return credentialsModel
-//    }
+    func didUpdatePasswordTextField(password: String) {
+        credentialsModel.password = password
+    }
 
     var isInputValid: AnyPublisher<Bool, Never> {
         return Publishers.CombineLatest(credentialsModel.$document, credentialsModel.$password)
@@ -57,9 +60,10 @@ extension LoginViewModel: LoginViewModelProtocol {
             switch response {
             case .success(let userAPI):
                 do {
-                    try SessionManager.shared.createUserSession(accessToken: userAPI.code, currentUser: UserDB.map(userAPI: userAPI))
+                    try self.session.createUserSession(accessToken: userAPI.code,
+                                                       currentUser: UserDB.map(userAPI: userAPI))
                 } catch {
-                    SessionManager.shared.expireSession()
+                    self.session.expireSession()
                 }
             case .failure(let error):
                 self.alertSubject.send(error.localizedDescription)

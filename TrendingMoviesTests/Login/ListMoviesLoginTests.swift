@@ -10,39 +10,32 @@ import Combine
 
 @testable import TrendingMovies
 
+/**
+    O objetivo dessa classe e testar as regras de negócio e seus respectivos comportamentos dentro do fluxo de `Login`,
+    utiliizando uma abordagem chamada `BDD` Behaviour Driven Development,
+    onde o próprio nome já diz testamos se o comportamento
+    do nosso app está correto com base em uma sequencia de eventos.
+    Resumindo "Como o nosso app deve se comportar caso o usuário faça tal coisa.."
+ 
+    Isso não substitui o `XCUITest` que ainda pode ser usado em momentos específicos e de mais complexidad
+    para ser feito, entretanto com `BDD` ganhamos muito mais performance nos testes de interface.
+ */
+
 class ListMoviesLoginTests: XCTestCase {
 
-    /// `RN 1.` Signing button should be enabled only if booth `Document` and `Password` fields are filled
-    func test_validInput() {
-
-        // given
-        let loginViewModel = createMockLoginViewModel()
-
-        let spy = ValueSpy(loginViewModel.isInputValid)
-
-        // then
-        XCTAssertEqual(spy.values, [false])
-
-        // when
-        //loginViewModel.credentials.document = "email@google.com"
-
-        // then
-        XCTAssertEqual(spy.values, [false, false])
-
-        // when
-        //loginViewModel.credentials.password = "password123"
-
-        // then
-        XCTAssertEqual(spy.values, [false, false, true])
-    }
-
-    /// `RN 2.` When user successfully login change session state to `hasSession`
+    /// `RN 1.` When user successfully login change session state to `hasSession`
     func test_userAuthentication_Success() {
 
         /// We should do the same with `RN 3.`
-        let mockSession = MockSessionManager(state: .notHaveSession)
+        let mockSession = SessionManagerStub(state: .notHaveSession)
 
-        let sut: LoginViewController = createInvalidLoginMockSession(session: mockSession)
+        let user: UserDTO = createValidMockUserResponse()
+            let repository: LoginRepository = LoginRepositoryStub(result: user)
+            let coordinator = LoginCoordinatorDummy()
+            let viewModel = LoginViewModel(coordinator: coordinator, repository: repository, session: mockSession)
+        let sut = LoginViewController(viewModel: viewModel)
+
+        sut.loadViewIfNeeded()
 
         let spy = ValueSessionSpy(mockSession.sessionState.eraseToAnyPublisher())
 
@@ -58,61 +51,25 @@ class ListMoviesLoginTests: XCTestCase {
     }
 
     /// `RN 3.` When user type wrong credential an alert shoud pop in
-    func test_userAuthentication_Error() {
-
-        /// We should do the same with `RN 3.`
-        let mockSession = MockSessionManager(state: .notHaveSession)
-
-        let sut: LoginViewController = createInvalidLoginMockSession(session: mockSession)
-
-        let spy = ValueSessionSpy(mockSession.sessionState.eraseToAnyPublisher())
-
-        // then
-        XCTAssertEqual(spy.values, [.notHaveSession])
-
-        // when
-        sut.customView.authButton.sendActions(for: .touchUpInside)
-
-        // then
-        XCTAssertEqual(spy.values, [.notHaveSession, .hasSession])
-    }
+    func test_userAuthentication_Error() { }
 
 }
 
 private func createLoginMockSession(session: SessionManagerProtocol) -> LoginViewController {
     let user: UserDTO = createValidMockUserResponse()
-    let repository: LoginRepository = LoginRepositorySpy(result: user)
+    let repository: LoginRepository = LoginRepositoryStub(result: user)
     let coordinator = LoginCoordinatorDummy()
-    let viewModel = LoginViewModel(coordinator: coordinator, repository: repository/*, session: session*/)
+    let viewModel = LoginViewModel(coordinator: coordinator, repository: repository, session: session)
+    viewModel.didUpdateDocumentTextField(document: "email@google.com")
+    viewModel.didUpdatePasswordTextField(password: "123456")
     return LoginViewController(viewModel: viewModel)
 }
 
-private func createInvalidLoginMockSession(session: SessionManagerProtocol) -> LoginViewController {
+private func createMockLoginViewControllerAuthError(session: SessionManagerProtocol) -> LoginViewController {
     let user: UserDTO = createInvalidMockUserResponse()
-    let repository: LoginRepository = LoginRepositorySpy(result: user)
+    let repository: LoginRepository = LoginRepositoryStub(result: user)
     let coordinator = LoginCoordinatorDummy()
-    let viewModel = LoginViewModel(coordinator: coordinator, repository: repository/*, session: session*/)
-    return LoginViewController(viewModel: viewModel)
-}
-
-private func createLoginInvalidSession() -> LoginViewController {
-    let error: APIError = .badCredentials
-    let repository: LoginRepository = LoginRepositorySpy(result: error)
-    return createMockLoginController(repository: repository)
-}
-
-private func createMockLoginController(repository: LoginRepository) -> LoginViewController {
-    let coordinator = LoginCoordinatorDummy()
-    let viewModel = LoginViewModel(coordinator: coordinator, repository: repository)
-
-    var credentials = LoginViewModel.LoginCredentials(document:"", password:"")
-    //viewModel.credentials.document = "email@google.com"
-
-    // then
-    // XCTAssertEqual(spy.values, [false, false])
-
-    // when
-    //viewModel.credentials.password = "password123"
+    let viewModel = LoginViewModel(coordinator: coordinator, repository: repository, session: session)
     return LoginViewController(viewModel: viewModel)
 }
 
@@ -130,45 +87,14 @@ private func createMockLoginViewModel() -> LoginViewModelProtocol {
 
     let coordinator: LoginCoordinatorProtocol = LoginCoordinatorDummy()
 
-    let repository: LoginRepository = LoginRepositorySpy(result: createValidMockUserResponse())
+    let repository: LoginRepository = LoginRepositoryStub(result: createValidMockUserResponse())
 
-    return LoginViewModel(coordinator: coordinator, repository: repository)
-}
+    let mockSession = SessionManagerStub(state: .notHaveSession)
 
-private class LoginCoordinatorDummy: LoginCoordinatorProtocol {
-    func showCreateAccount() {
-        // TODO: test navigation
-    }
+    return LoginViewModel(coordinator: coordinator, repository: repository, session: mockSession)
 }
 
 // MARK: - Login Repository Layer
-private class LoginRepositorySpy: LoginRepository {
-
-    private let result: Result<UserDTO, APIError>
-
-    init(result: UserDTO) {
-        self.result = .success(result)
-    }
-    init(result: APIError) {
-        self.result = .failure(result)
-    }
-
-    func auth(credentials: LoginModel, completion: @escaping (Result<UserDTO, APIError>) -> Void) {
-        // TODO: test response
-        completion(result)
-    }
-}
-
-private class ValueSpy {
-    private(set) var values = [Bool]()
-    private var cancellable: AnyCancellable?
-
-    init(_ publisher: AnyPublisher<Bool, Never>) {
-        cancellable = publisher.sink(receiveValue: { [weak self] value in
-            self?.values.append(value)
-        })
-    }
-}
 
 private class ValueSessionSpy {
     private(set) var values = [UserSessionState]()

@@ -37,11 +37,15 @@ class LoginViewController: UIViewController {
     }
 
     private func bind() {
-        Publishers
-            .CombineLatest(customView.documentTextField.textPublisher, customView.passwordTextField.textPublisher)
+
+        customView.documentTextField.textPublisher
             .receive(on: RunLoop.main)
-            .map({ (document: $0, password: $1)  })
-            .sink(receiveValue: { [weak self] in self?.viewModel.updateCredentials(credentials: $0) })
+            .sink(receiveValue: { [weak self] in self?.viewModel.didUpdateDocumentTextField(document: $0) })
+            .store(in: &subscriptions)
+
+        customView.passwordTextField.textPublisher
+            .receive(on: RunLoop.main)
+            .sink(receiveValue: { [weak self] in self?.viewModel.didUpdatePasswordTextField(password: $0) })
             .store(in: &subscriptions)
 
         viewModel.isInputValid
