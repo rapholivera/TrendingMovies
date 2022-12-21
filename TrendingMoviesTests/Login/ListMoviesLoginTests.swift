@@ -23,30 +23,17 @@ import Combine
 
 class ListMoviesLoginTests: XCTestCase {
 
-    /// `RN 1.` When user successfully login change session state to `hasSession`
-    func test_userAuthentication_Success() {
+    /// `RN 1.` Se o usuário se autenticar corretamente o app deve mostrar a tela de filmes em destaque
+    func test_should_show_trending_movies_when_user_succesfully_authenticated() {
 
-        /// We should do the same with `RN 3.`
-        let mockSession = SessionManagerStub(state: .notHaveSession)
+        /// Simulamos um `ViewModel` preparado para testar um usuário novo
+        let mockViewModel = createMockNewUserLoginViewModel()
 
-        let user: UserDTO = createValidMockUserResponse()
-            let repository: LoginRepository = LoginRepositoryStub(result: user)
-            let coordinator = LoginCoordinatorDummy()
-            let viewModel = LoginViewModel(coordinator: coordinator, repository: repository, session: mockSession)
-        let sut = LoginViewController(viewModel: viewModel)
+        let sut = LoginViewController(viewModel: mockViewModel)
 
         sut.loadViewIfNeeded()
 
-        let spy = ValueSessionSpy(mockSession.sessionState.eraseToAnyPublisher())
-
-        // then
-        XCTAssertEqual(spy.values, [.notHaveSession])
-
-        // when
-        sut.customView.authButton.sendActions(for: .touchUpInside)
-
-        // then
-        XCTAssertEqual(spy.values, [.notHaveSession, .hasSession])
+        // TODO: - Criar teste de validação de login
 
     }
 
@@ -54,55 +41,16 @@ class ListMoviesLoginTests: XCTestCase {
     func test_userAuthentication_Error() { }
 
 }
-
-private func createLoginMockSession(session: SessionManagerProtocol) -> LoginViewController {
+/// Cria um `ViewModel` com suas dependências simulando um usuário novo
+private func createMockNewUserLoginViewModel() -> LoginViewModelProtocol {
     let user: UserDTO = createValidMockUserResponse()
     let repository: LoginRepository = LoginRepositoryStub(result: user)
     let coordinator = LoginCoordinatorDummy()
-    let viewModel = LoginViewModel(coordinator: coordinator, repository: repository, session: session)
-    viewModel.didUpdateDocumentTextField(document: "email@google.com")
-    viewModel.didUpdatePasswordTextField(password: "123456")
-    return LoginViewController(viewModel: viewModel)
-}
-
-private func createMockLoginViewControllerAuthError(session: SessionManagerProtocol) -> LoginViewController {
-    let user: UserDTO = createInvalidMockUserResponse()
-    let repository: LoginRepository = LoginRepositoryStub(result: user)
-    let coordinator = LoginCoordinatorDummy()
-    let viewModel = LoginViewModel(coordinator: coordinator, repository: repository, session: session)
-    return LoginViewController(viewModel: viewModel)
+    return LoginViewModel(coordinator: coordinator, repository: repository,
+                          session: SessionManagerStub(state: .notHaveSession))
 }
 
 private func createValidMockUserResponse() -> UserDTO {
     let randomAccessToken: String = UUID().uuidString
     return UserDTO(name: "User", code: randomAccessToken, mail: "movies@movies.com")
-}
-
-private func createInvalidMockUserResponse() -> UserDTO {
-    return UserDTO(name: "User", code: "", mail: "movies@movies.com")
-}
-
-/// Create a mock login view model to use in tests
-private func createMockLoginViewModel() -> LoginViewModelProtocol {
-
-    let coordinator: LoginCoordinatorProtocol = LoginCoordinatorDummy()
-
-    let repository: LoginRepository = LoginRepositoryStub(result: createValidMockUserResponse())
-
-    let mockSession = SessionManagerStub(state: .notHaveSession)
-
-    return LoginViewModel(coordinator: coordinator, repository: repository, session: mockSession)
-}
-
-// MARK: - Login Repository Layer
-
-private class ValueSessionSpy {
-    private(set) var values = [UserSessionState]()
-    private var cancellable: AnyCancellable?
-
-    init(_ publisher: AnyPublisher<UserSessionState, Error>) {
-        cancellable = publisher.sink(receiveCompletion: { _ in }, receiveValue: { [weak self] value in
-            self?.values.append(value)
-        })
-    }
 }

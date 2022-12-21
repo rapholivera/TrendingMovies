@@ -16,7 +16,7 @@ final class ListMoviesLoginViewModelTests: XCTestCase {
     func test_should_validate_user_input_when_form_fields_changes() {
 
         // given
-        let loginViewModel = createMockLoginViewModel()
+        let loginViewModel = createMockNewUserLoginViewModel()
 
         let spy = ValueSpy(loginViewModel.isInputValid)
 
@@ -38,11 +38,13 @@ final class ListMoviesLoginViewModelTests: XCTestCase {
 
 }
 
-/// Create a mock login view model to use in tests
-private func createMockLoginViewModel() -> LoginViewModelProtocol {
-    let repository: LoginRepository = LoginRepositoryStub(result: createValidMockUserResponse())
-    let mockSession = SessionManagerStub(state: .notHaveSession)
-    return LoginViewModel(coordinator: LoginCoordinatorDummy(), repository: repository, session: mockSession)
+/// Cria um `ViewModel` com suas dependências simulando um usuário novo
+private func createMockNewUserLoginViewModel() -> LoginViewModelProtocol {
+    let user: UserDTO = createValidMockUserResponse()
+    let repository: LoginRepository = LoginRepositoryStub(result: user)
+    let coordinator = LoginCoordinatorDummy()
+    return LoginViewModel(coordinator: coordinator, repository: repository,
+                          session: SessionManagerStub(state: .notHaveSession))
 }
 
 private func createValidMockUserResponse() -> UserDTO {
